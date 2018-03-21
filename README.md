@@ -1,2 +1,2 @@
-# Both-Unity-game
-Unity project files for Android game. Gameplay mechanics based on Pyoro 2.
+# Pyoro-clone-Unity-game
+Unity project files for Android game. Gameplay mechanics cloned from Pyoro 2.
