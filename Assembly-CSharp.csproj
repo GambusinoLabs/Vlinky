@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{A084D2BE-BF0F-239C-8D54-9A1C3BEBE2E4}</ProjectGuid>
+    <ProjectGuid>{6F31FA9F-3770-3946-44A6-E054EC66CDE4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -51,10 +51,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Baldosas.cs" />
      <Compile Include="Assets\Scripts\Blinky.cs" />
+     <Compile Include="Assets\Scripts\GelatinaForce.cs" />
      <Compile Include="Assets\Scripts\Generador.cs" />
-     <Compile Include="Assets\Scripts\Ojo.cs" />
+     <Compile Include="Assets\Scripts\Iniciar.cs" />
+     <Compile Include="Assets\Scripts\Muerte.cs" />
      <Compile Include="Assets\Scripts\Panel.cs" />
+     <Compile Include="Assets\Scripts\Puntuacion.cs" />
+     <Compile Include="Assets\Scripts\restart.cs" />
+     <Compile Include="Assets\Scripts\TimeManage.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

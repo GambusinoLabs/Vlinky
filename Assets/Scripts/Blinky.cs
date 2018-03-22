@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Blinky : MonoBehaviour {
 	public float velocidadMovimiento;
-	public Rigidbody2D proyectil;
 	private bool puedeandar = true;
 	private bool mirandoderecha = true;
 	private RaycastHit2D hit;
+	public Puntuacion contador;
 
 	void Update (){
 		Movimiento ();
@@ -47,10 +47,11 @@ public class Blinky : MonoBehaviour {
 		}
 
 		for (int i = 0; i < hits.Length; i++) {
-				if (hits[i].collider != null) {
+			if (hits[i].collider != null) {
 				Debug.Log ("HAY ALGO");
 					print (hits[i].distance);
 					Destroy (hits [i].collider.gameObject);
+					contador.Puntos (50);
 				}
 			}
 		}
