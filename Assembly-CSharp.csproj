@@ -54,7 +54,9 @@
      <Compile Include="Assets\Scripts\Baldosas.cs" />
      <Compile Include="Assets\Scripts\Blinky.cs" />
      <Compile Include="Assets\Scripts\GelatinaForce.cs" />
+     <Compile Include="Assets\Scripts\GelatinaReparadora.cs" />
      <Compile Include="Assets\Scripts\Generador.cs" />
+     <Compile Include="Assets\Scripts\GR2.cs" />
      <Compile Include="Assets\Scripts\Iniciar.cs" />
      <Compile Include="Assets\Scripts\Muerte.cs" />
      <Compile Include="Assets\Scripts\Panel.cs" />

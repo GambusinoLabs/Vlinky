@@ -8,11 +8,12 @@ public class Blinky : MonoBehaviour {
 	private bool mirandoderecha = true;
 	private RaycastHit2D hit;
 	public Puntuacion contador;
+	private float tiempoCD;
 
-	void Update (){
+	void FixedUpdate (){
 		Movimiento ();
-		if (Input.GetKeyDown (KeyCode.Space)) {
-			Disparo ();
+		if (Input.GetKeyDown (KeyCode.Space) && tiempoCD <= Time.time) {
+			StartCoroutine("Disparo");
 			}
 		}
 
@@ -38,7 +39,7 @@ public class Blinky : MonoBehaviour {
 		}
 	}
 
-	void Disparo (){
+	 void Disparo (){
 		RaycastHit2D[] hits;
 		if (mirandoderecha == true) {
 			hits = Physics2D.RaycastAll (GetComponent<Rigidbody2D> ().transform.position, new Vector2 (1f, 1f));
@@ -52,7 +53,11 @@ public class Blinky : MonoBehaviour {
 					print (hits[i].distance);
 					Destroy (hits [i].collider.gameObject);
 					contador.Puntos (50);
+				if (hits [i].collider.gameObject.tag == "GelatinaReparadora") {
+					GelatinaReparadora.Reparar ();
+				}
 				}
 			}
+		tiempoCD = Time.time + .25f;
 		}
 	}

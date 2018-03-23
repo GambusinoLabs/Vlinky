@@ -6,8 +6,6 @@ public class TimeManage : MonoBehaviour {
 
 	void Update () {
 		Time.timeScale = Time.timeScale + (Time.deltaTime * 0.01f);
-	
-		print (Time.timeScale);
 	}
 
 	public void Pause() {
