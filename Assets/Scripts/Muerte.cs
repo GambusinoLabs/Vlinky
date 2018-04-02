@@ -1,15 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// Se encarga de controlar el sistema de muerte del personaje. Debe asignarse al personaje.
 public class Muerte : MonoBehaviour {
-	public restart reiniciar;
+	
+	// properties
+	public restart reiniciar;	 // Debe asignarse un objeto con el script restart.
 
-	void OnCollisionEnter2D (Collision2D col)
+	// methods
+	void OnTriggerEnter2D(Collider2D col)
 	{
-		if (col.gameObject.tag == "Gelatina") {
-			Destroy (gameObject);
-			reiniciar.ResetearEscena ();
+		
+		//Provoca que, si el objeto que lleva este script entra en contacto con una gelatina, sea destruido y la escena se reinicie.
+		if (col.gameObject.tag == "Gelatina") 
+		{
+			Destroy(gameObject);
+			reiniciar.ResetearEscena();
 		}
+
+		// Provoca que, si el objeto que lleva este script entra en contacto con una gelatina reparadora, sea destruido y la escena se reinicie.
+		if (col.gameObject.tag == "GelatinaReparadora") 
+		{
+			Destroy(gameObject);
+			reiniciar.ResetearEscena();
+		}
+
 	}
+
 }

@@ -2,16 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Baldosas : MonoBehaviour {
-	public GameObject baldosarota;
+// Provoca que el objeto que lleve este script (las baldosas) se destruya al entrar en contacto con una Gelatina o Gelatina Reparadora (la cual también es destruida), dejando en su lugar un hueco (Baldosa rota).
+public class Baldosas : MonoBehaviour 
+{
+	
+	// properties
+	public GameObject baldosarota;		// Objeto que contiene la baldosa rota.
 
-	void OnCollisionEnter2D (Collision2D col) {
-		if (col.gameObject.tag == "Gelatina") {
-			Destroy (gameObject);
-			Destroy (col.gameObject);
-			Instantiate (baldosarota, transform.position, transform.rotation);
+	// methods
+	void OnTriggerEnter2D(Collider2D col) 
+	{
+
+		if (col.gameObject.tag == "Gelatina") 
+		{
+			Destroy(gameObject);
+			Destroy(col.gameObject);
+			Instantiate(baldosarota, transform.position, transform.rotation);
+		}
+
+		if (col.gameObject.tag == "GelatinaReparadora") 
+		{
+			Destroy(gameObject);
+			Destroy(col.gameObject);
+			Instantiate(baldosarota, transform.position, transform.rotation);
 		}
 			
 	}
+
 }
 

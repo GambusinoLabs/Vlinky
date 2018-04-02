@@ -1,63 +1,97 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+// Se encarga de regular el movimiento y los disparos de Blinky, estrechamente relacionados entre ellos. 
+public class Blinky : MonoBehaviour 
+{
 
-public class Blinky : MonoBehaviour {
-	public float velocidadMovimiento;
-	private bool puedeandar = true;
-	private bool mirandoderecha = true;
-	private RaycastHit2D hit;
-	public Puntuacion contador;
-	private float tiempoCD;
+	// fields
+	bool mirandoDerecha = true;		//Determina la dirección en la que está mirando Blinky, y por tanto en la que debe disparar.
+	bool puedeAndar = true;			//Determina si Blinky puede moverse o no (por estar disparando).
+	RaycastHit2D hit;
 
-	void FixedUpdate (){
-		Movimiento ();
-		if (Input.GetKeyDown (KeyCode.Space) && tiempoCD <= Time.time) {
+	// properties
+	public float tiempoCD;					//Determina el tiempo de enfriamiento que tiene el disparo de Blinky.
+	public float velocidadMovimiento;		//Determina la velocidad del movimiento de Blinky.
+	public Puntuacion contador;				//Aquí debe instanciarse el contador de puntos para que se sumen los puntos conseguidos.
+
+	// methods
+	void FixedUpdate()
+	{
+		
+		Movimiento();
+		if ((Input.GetKeyDown (KeyCode.Space)) && (tiempoCD <= Time.time)) 
+		{
 			StartCoroutine("Disparo");
-			}
 		}
 
-	void Movimiento (){
-		if (Input.GetKey (KeyCode.A) && puedeandar == true) {
-			GetComponent<Rigidbody2D> ().velocity = new Vector2 (-velocidadMovimiento, GetComponent<Rigidbody2D> ().velocity.y);
-			mirandoderecha = false;
-		}
-
-		if (Input.GetKeyUp (KeyCode.A)) {
-			GetComponent<Rigidbody2D> ().velocity = new Vector2 (0.0f, GetComponent<Rigidbody2D> ().velocity.y);
-		}
-
-
-		if (Input.GetKey (KeyCode.D)  && puedeandar == true) {
-			GetComponent<Rigidbody2D> ().velocity = new Vector2 (velocidadMovimiento, GetComponent<Rigidbody2D> ().velocity.y);
-			mirandoderecha = true;
-		}
-
-		if (Input.GetKeyUp (KeyCode.D)) {
-			GetComponent<Rigidbody2D> ().velocity = new Vector2 (0.0f, GetComponent<Rigidbody2D> ().velocity.y);
-
-		}
 	}
 
-	 void Disparo (){
-		RaycastHit2D[] hits;
-		if (mirandoderecha == true) {
-			hits = Physics2D.RaycastAll (GetComponent<Rigidbody2D> ().transform.position, new Vector2 (1f, 1f));
-		} else {
-			hits = Physics2D.RaycastAll (GetComponent<Rigidbody2D> ().transform.position, new Vector2 (-1f, 1f));
+	void Movimiento()
+	{
+		
+		// Al pulsar A el personaje se mueve, siempre que pueda moverse en ese momento.
+		if ((Input.GetKey(KeyCode.A)) && (puedeAndar == true)) 
+		{
+			GetComponent<Rigidbody2D> ().velocity = new Vector2 (-velocidadMovimiento, GetComponent<Rigidbody2D> ().velocity.y);
+			mirandoDerecha = false;
 		}
 
-		for (int i = 0; i < hits.Length; i++) {
-			if (hits[i].collider != null) {
-				Debug.Log ("HAY ALGO");
-					print (hits[i].distance);
-					Destroy (hits [i].collider.gameObject);
-					contador.Puntos (50);
-				if (hits [i].collider.gameObject.tag == "GelatinaReparadora") {
-					GelatinaReparadora.Reparar ();
-				}
+		// Al soltar A, el personaje deja de moverse.
+		if (Input.GetKeyUp(KeyCode.A)) 
+		{
+			GetComponent<Rigidbody2D> ().velocity = new Vector2 (0.0f, GetComponent<Rigidbody2D> ().velocity.y);
+		}
+
+		// Al pulsar D el personaje se mueve, siempre que pueda moverse en ese momento.
+		if ((Input.GetKey(KeyCode.D))  && (puedeAndar == true)) 
+		{
+			GetComponent<Rigidbody2D> ().velocity = new Vector2 (velocidadMovimiento, GetComponent<Rigidbody2D> ().velocity.y);
+			mirandoDerecha = true;
+		}
+
+		// Al soltar D, el personaje deja de moverse.
+		if (Input.GetKeyUp(KeyCode.D)) 
+		{
+			GetComponent<Rigidbody2D> ().velocity = new Vector2 (0.0f, GetComponent<Rigidbody2D> ().velocity.y);
+		}
+
+	}
+
+	 IEnumerator Disparo()
+	{
+
+		puedeAndar = false;
+		// Si el personaje se haya mirando a la derecha, lanza un Raycast 45º en dirección a la derecha, de lo contrario, lo lanza 45º en dirección a la izquierda.
+		RaycastHit2D[] hits;
+		if (mirandoDerecha == true) 
+		{
+			hits = Physics2D.RaycastAll (GetComponent<Rigidbody2D> ().transform.position, new Vector2 (1f, 1f));
+		} 
+		else 
+		{
+			hits = Physics2D.RaycastAll (GetComponent<Rigidbody2D> ().transform.position, new Vector2 (-1f, 1f));
+		}
+			
+		for (int i = 0; i < hits.Length; i++) 
+		{
+			// Cuando detecta uno o varios Collider al disparar los Raycast, dichos Collider son destruidos, aportando 50 puntos cada uno.
+			if (hits[i].collider != null) 
+			{
+					Destroy(hits [i].collider.gameObject);
+					contador.Puntos(50);
+				// Si ademas dicho Collider es una Gelatina reparadora, ejecuta su función reparar (presente en el script GelatinaReparadora, el cual lleva el propio Blinky)
+				if (hits [i].collider.gameObject.tag == "GelatinaReparadora") 
+				{
+					gameObject.GetComponent<GelatinaReparadora>().Reparar();
 				}
 			}
-		tiempoCD = Time.time + .25f;
 		}
+
+		yield return new WaitForSeconds(.3f);
+
+		puedeAndar = true;
+
+		}
+
 	}

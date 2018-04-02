@@ -2,52 +2,91 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GelatinaReparadora : MonoBehaviour {
-	RaycastHit2D hitRight;
+public class GelatinaReparadora : MonoBehaviour 
+{
+	
+	// fields
+	float baldosareparable1 = 0;
+	float baldosareparable2 = 0;
+	GameObject baldosaderecha;
+	GameObject baldosaizquierda;
+	GameObject elegida;
 	RaycastHit2D hitLeft;
-	private float baldosareparable1 = 0;
-	private float baldosareparable2 = 0;
-	private GameObject elegida;
+	RaycastHit2D hitRight;
+
+	// properties
 	public GameObject baldosasana;
 
-	void Update(){
-		hitRight = Physics2D.Raycast (GetComponent<Rigidbody2D> ().transform.position, Vector2.right);
-		hitLeft = Physics2D.Raycast (GetComponent<Rigidbody2D> ().transform.position, Vector2.left);
-		if (hitRight.collider != null) {
-			Right ();
-			RightLeft ();
+	// methods
+	void Update()
+	{
+		
+		hitRight = Physics2D.Raycast (GetComponent<Rigidbody2D> ().transform.position, Vector2.right, 300f);
+		hitLeft = Physics2D.Raycast (GetComponent<Rigidbody2D> ().transform.position, Vector2.left, 300f);
+		if (hitRight.collider != null)
+		{
+			Right();
+			RightLeft();
 		}
 
-		if (hitLeft.collider != null) {
-			Left ();
-			RightLeft ();
+		if (hitLeft.collider != null) 
+		{
+			Left();
+			RightLeft();
 		}
+
 	}
 
-	void Right (){
-		if (hitRight.collider.tag == "BaldosaRota") {
-			Debug.Log ("HOLA");
+	void Right()
+	{
+		
+		if (hitRight.collider.tag == "BaldosaRota") 
+		{
 			baldosareparable1 = hitRight.distance;
+			baldosaderecha = hitRight.collider.gameObject;
 		}
+
 	}
 
-	void Left (){
-		if (hitLeft.collider.tag == "BaldosaRota") {
-			Debug.Log ("ADIOS");
+	void Left()
+	{
+		if (hitLeft.collider.tag == "BaldosaRota") 
+		{
 			baldosareparable2 = hitLeft.distance;
+			baldosaizquierda = hitLeft.collider.gameObject;
 		}
-	}
-	void RightLeft (){
-		if (baldosareparable1 < baldosareparable2) {
-			elegida = hitRight.collider.gameObject;
-		} else if (baldosareparable1 >= baldosareparable2) {
-			elegida = hitLeft.collider.gameObject;
-		}
-			print (elegida);
+
 	}
 
-	public void Reparar (){
-		Destroy (elegida);
-		Instantiate (baldosasana, elegida.transform.position, elegida.transform.rotation);
+	void RightLeft()
+	{
+
+		if ((baldosaderecha == null) && (baldosaizquierda != null))
+		{
+			elegida = baldosaizquierda;
+		}
+		else if ((baldosaderecha != null) && (baldosaizquierda == null))
+		{
+			elegida = baldosaderecha;
+		}
+
+		if ((baldosaderecha != null) && (baldosaizquierda != null) && (baldosareparable1 < baldosareparable2)) 
+		{
+			elegida = baldosaderecha;
+		} 
+		else if ((baldosaderecha != null) && (baldosaizquierda != null) && (baldosareparable1 >= baldosareparable2)) 
+		{
+			elegida = baldosaizquierda;
+		}
+
 	}
+
+	public void Reparar()
+	{
+		
+		Destroy(elegida);
+		Instantiate(baldosasana, elegida.transform.position, elegida.transform.rotation);
+
+	}
+		
 }

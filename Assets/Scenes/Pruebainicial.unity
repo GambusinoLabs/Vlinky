@@ -1243,6 +1243,7 @@ GameObject:
   - component: {fileID: 1062835186}
   - component: {fileID: 1062835185}
   - component: {fileID: 1062835187}
+  - component: {fileID: 1062835188}
   m_Layer: 0
   m_Name: Generador
   m_TagString: Untagged
@@ -1299,8 +1300,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a4aba49f92b95346802b0904d4077f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gelatina: {fileID: 1533600284129574, guid: c591aae19860b5943841331908e9a000, type: 2}
   secondsToCount: 2
+  gelatina: {fileID: 1533600284129574, guid: c591aae19860b5943841331908e9a000, type: 2}
+  variable: 10
+--- !u!114 &1062835188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1062835184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a4aba49f92b95346802b0904d4077f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondsToCount: 4
+  gelatina: {fileID: 1501624294962978, guid: 3fd5a9d85cb23b84e98455bdcfba44fb, type: 2}
   variable: 10
 --- !u!1001 &1130073426
 Prefab:
@@ -1373,7 +1388,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4627253734333280, guid: 3a26835f865171b4095dca920bc458c2, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -8.351676
+      value: -8.38
       objectReference: {fileID: 0}
     - target: {fileID: 4627253734333280, guid: 3a26835f865171b4095dca920bc458c2, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1924,7 +1939,6 @@ GameObject:
   - component: {fileID: 1577233468}
   - component: {fileID: 1577233470}
   - component: {fileID: 1577233471}
-  - component: {fileID: 1577233472}
   m_Layer: 0
   m_Name: GameControl
   m_TagString: Untagged
@@ -1980,18 +1994,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b28dd476e52b4f249866dbf195c4435f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1577233472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1577233467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2df6191e72c4244d892ae5b34d21e66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baldosareparada: {fileID: 0}
 --- !u!1 &1601520974
 GameObject:
   m_ObjectHideFlags: 0
@@ -2523,6 +2525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd8c1a7b55445e43b89345aeeaa94fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tiempoCD: 0.1
   velocidadMovimiento: 5
   contador: {fileID: 1577233468}
 --- !u!212 &1934922028
@@ -2605,7 +2608,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3779233478e350d4db7ba6ae696181e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baldosasana: {fileID: 0}
+  baldosasana: {fileID: 1061514649070742, guid: 3a26835f865171b4095dca920bc458c2,
+    type: 2}
 --- !u!4 &1941161522 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4627253734333280, guid: 3a26835f865171b4095dca920bc458c2,
