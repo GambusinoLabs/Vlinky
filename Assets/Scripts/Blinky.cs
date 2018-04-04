@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 // Se encarga de regular el movimiento y los disparos de Blinky, estrechamente relacionados entre ellos. 
@@ -6,14 +6,14 @@ public class Blinky : MonoBehaviour
 {
 
 	// fields
-	bool mirandoDerecha = true;		//Determina la dirección en la que está mirando Blinky, y por tanto en la que debe disparar.
-	bool puedeAndar = true;			//Determina si Blinky puede moverse o no (por estar disparando).
+	bool mirandoDerecha = true;		// Determina la dirección en la que está mirando Blinky, y por tanto en la que debe disparar.
+	bool puedeAndar = true;			// Determina si Blinky puede moverse o no (por estar disparando).
 	RaycastHit2D hit;
 
 	// properties
-	public float tiempoCD;					//Determina el tiempo de enfriamiento que tiene el disparo de Blinky.
-	public float velocidadMovimiento;		//Determina la velocidad del movimiento de Blinky.
-	public Puntuacion contador;				//Aquí debe instanciarse el contador de puntos para que se sumen los puntos conseguidos.
+	public float tiempoCD;					// Determina el tiempo de enfriamiento que tiene el disparo de Blinky.
+	public float velocidadMovimiento;		// Determina la velocidad del movimiento de Blinky.
+	public Puntuacion contador;				// Aquí debe instanciarse el contador de puntos para que se sumen los puntos conseguidos.
 
 	// methods
 	void FixedUpdate()
@@ -33,27 +33,27 @@ public class Blinky : MonoBehaviour
 		// Al pulsar A el personaje se mueve, siempre que pueda moverse en ese momento.
 		if ((Input.GetKey(KeyCode.A)) && (puedeAndar == true)) 
 		{
-			GetComponent<Rigidbody2D> ().velocity = new Vector2 (-velocidadMovimiento, GetComponent<Rigidbody2D> ().velocity.y);
+			GetComponent<Rigidbody2D>().velocity = new Vector2 (-velocidadMovimiento, GetComponent<Rigidbody2D> ().velocity.y);
 			mirandoDerecha = false;
 		}
 
 		// Al soltar A, el personaje deja de moverse.
 		if (Input.GetKeyUp(KeyCode.A)) 
 		{
-			GetComponent<Rigidbody2D> ().velocity = new Vector2 (0.0f, GetComponent<Rigidbody2D> ().velocity.y);
+			GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, GetComponent<Rigidbody2D> ().velocity.y);
 		}
 
 		// Al pulsar D el personaje se mueve, siempre que pueda moverse en ese momento.
 		if ((Input.GetKey(KeyCode.D))  && (puedeAndar == true)) 
 		{
-			GetComponent<Rigidbody2D> ().velocity = new Vector2 (velocidadMovimiento, GetComponent<Rigidbody2D> ().velocity.y);
+			GetComponent<Rigidbody2D>().velocity = new Vector2 (velocidadMovimiento, GetComponent<Rigidbody2D> ().velocity.y);
 			mirandoDerecha = true;
 		}
 
 		// Al soltar D, el personaje deja de moverse.
 		if (Input.GetKeyUp(KeyCode.D)) 
 		{
-			GetComponent<Rigidbody2D> ().velocity = new Vector2 (0.0f, GetComponent<Rigidbody2D> ().velocity.y);
+			GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, GetComponent<Rigidbody2D> ().velocity.y);
 		}
 
 	}
@@ -80,7 +80,7 @@ public class Blinky : MonoBehaviour
 			{
 					Destroy(hits [i].collider.gameObject);
 					contador.Puntos(50);
-				// Si ademas dicho Collider es una Gelatina reparadora, ejecuta su función reparar (presente en el script GelatinaReparadora, el cual lleva el propio Blinky)
+				// Si ademas dicho Collider es una Gelatina reparadora, ejecuta su función reparar (presente en el script GelatinaReparadora, el cual lleva el propio Blinky).
 				if (hits [i].collider.gameObject.tag == "GelatinaReparadora") 
 				{
 					gameObject.GetComponent<GelatinaReparadora>().Reparar();
@@ -88,7 +88,7 @@ public class Blinky : MonoBehaviour
 			}
 		}
 
-		yield return new WaitForSeconds(.3f);
+		yield return new WaitForSecondsRealtime(.3f);
 
 		puedeAndar = true;
 

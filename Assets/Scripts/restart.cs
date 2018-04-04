@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement; //IMPORTANTE PARA PODER MODIFICAR ESCENAS
-//Provoca que se reinicie la escena actual. Debe asignarse a un objeto vacío.
+// Provoca que se reinicie la escena actual. Debe asignarse a un objeto vacío.
 public class restart : MonoBehaviour 
 {
 

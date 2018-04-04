@@ -56,7 +56,9 @@
      <Compile Include="Assets\Scripts\GelatinaForce.cs" />
      <Compile Include="Assets\Scripts\GelatinaReparadora.cs" />
      <Compile Include="Assets\Scripts\Generador.cs" />
+     <Compile Include="Assets\Scripts\GroundGenerator.cs" />
      <Compile Include="Assets\Scripts\Iniciar.cs" />
+     <Compile Include="Assets\Scripts\InspectorButtonAttribute.cs" />
      <Compile Include="Assets\Scripts\Muerte.cs" />
      <Compile Include="Assets\Scripts\Panel.cs" />
      <Compile Include="Assets\Scripts\Puntuacion.cs" />

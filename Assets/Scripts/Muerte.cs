@@ -11,7 +11,7 @@ public class Muerte : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col)
 	{
 		
-		//Provoca que, si el objeto que lleva este script entra en contacto con una gelatina, sea destruido y la escena se reinicie.
+		// Provoca que, si el objeto que lleva este script entra en contacto con una gelatina, sea destruido y la escena se reinicie.
 		if (col.gameObject.tag == "Gelatina") 
 		{
 			Destroy(gameObject);

@@ -5,20 +5,24 @@ public class Generador : MonoBehaviour
 {
 	// fields
 	float secondsCounter = 0;
+	float secondsCounter2 = 0;
 	GameObject gelatina_nueva;
+	GameObject gelatina_nueva2;
 	int number = 0;
-	Vector3 rangoGenerador; 			//Determinará la posición base en la que se generarán los objetos.
+	Vector3 rangoGenerador; 			// Determinará la posición base en la que se generarán los objetos.
 
 	// properties
-	public float secondsToCount = 1;	// Determina cada cuanto tiempo se genera un nuevo objeto.
-	public GameObject gelatina;			// Determina el objeto a instanciar.
-	public int variable = 10;			//Determinará el rango de distancia en ambas direcciones en el que se generarán los objetos.
+	public float secondsToCount = 1;	// Determina cada cuanto tiempo se genera un nuevo objeto del primer tipo.
+	public float secondsToCount2 = 1;	// Determina cada cuanto tiempo se genera un nuevo objeto del segundo tipo.
+	public GameObject gelatina;			// Determina el primer tipo de objeto a instanciar.
+	public GameObject gelatina2;		// Determina el segundo tipo de objeto a instanciar.
+	public int variable = 10;			// Determinará el rango de distancia en ambas direcciones en el que se generarán los objetos.
 
 	// methods
 	void Start() 
 	{
 		
-		//Provoca que se genere un primer objeto nada más iniciar la escena
+		// Provoca que se genere un primer objeto nada más iniciar la escena.
 			GenerarGelatina();
 
 	}
@@ -35,6 +39,15 @@ public class Generador : MonoBehaviour
 			GenerarGelatina();
 		}
 
+		secondsCounter2 += (Time.deltaTime / 2);
+		// Si ha pasado tanto tiempo como indica la variable secondsToCount2, se genera una gelatina.
+		if ((Time.time >= 30f) && (secondsCounter2 >= secondsToCount2)) 
+		{
+			secondsCounter2 = 0;
+			number++;
+			GenerarGelatina2();
+		}
+
 	}
 
 	void GenerarGelatina() 
@@ -42,10 +55,27 @@ public class Generador : MonoBehaviour
 		
 		// Determina un rango aleatorio, partiendo de la posición del objeto que lleva este script, añadiendole una distancia igual a variable en cada dirección.
 		rangoGenerador = new Vector3 (Random.Range (transform.position.x - variable, transform.position.x + variable), transform.position.y, transform.position.z);
-		//Si hay un objeto asignado en el inspector, se genera en la posicion determinada anteriormente, si no, el Debugger nos informa de que no está asignado
+		// Si hay un objeto asignado en el inspector, se genera en la posicion determinada anteriormente, si no, el Debugger nos informa de que no está asignado.
 		if (gelatina != null) 
 		{
 			gelatina_nueva = (GameObject)Instantiate(gelatina, rangoGenerador, transform.rotation);
+		} 
+		else 
+		{
+			Debug.Log("GenerarGelatina: ¡No has asignado el prefab en el inspector! (O eso parece, porque el GameObject gelatina es = null)");
+		}
+
+	}
+
+	void GenerarGelatina2() 
+	{
+		
+		// Determina un rango aleatorio, partiendo de la posición del objeto que lleva este script, añadiendole una distancia igual a variable en cada dirección.
+		rangoGenerador = new Vector3 (Random.Range (transform.position.x - variable, transform.position.x + variable), transform.position.y, transform.position.z);
+		// Si hay un objeto asignado en el inspector, se genera en la posicion determinada anteriormente, si no, el Debugger nos informa de que no está asignado.
+		if (gelatina2 != null) 
+		{
+			gelatina_nueva2 = (GameObject)Instantiate(gelatina2, rangoGenerador, transform.rotation);
 		} 
 		else 
 		{

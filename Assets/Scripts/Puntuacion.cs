@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class Puntuacion : MonoBehaviour 
 {
 	// fields
-	int puntuacion = 0;					// Controla la puntuación actual.
+	int puntuacion = 0;							// Controla la puntuación actual.
 
 	// properties
 	public static int puntuacionmaxima = 0;		// Controla la puntuación máxima.
-	public Text contador;						//Debe asignarse el texto que contiene la puntuación actual.
-	public Text highscore;						//Debe asignarse el texto que contiene la puntuación máxima obtenida.
+	public Text contador;						// Debe asignarse el texto que contiene la puntuación actual.
+	public Text highscore;						// Debe asignarse el texto que contiene la puntuación máxima obtenida.
 
 	// methods 
 	void Start()
@@ -28,9 +28,9 @@ public class Puntuacion : MonoBehaviour
 		
 		// Provoca que la puntuacion aumente en una cantidad igual a "puntosganados" al llamar esta función.
 		puntuacion = puntuacion + puntosganados;	
-		//Provoca que el contador refleje los cambios en la variable de puntuación.
+		// Provoca que el contador refleje los cambios en la variable de puntuación.
 		contador.text = puntuacion.ToString();		
-		//Provoca que, si se supera la puntuación máxima, se sustituya por la nueva puntuación obtenida
+		// Provoca que, si se supera la puntuación máxima, se sustituya por la nueva puntuación obtenida.
 		if (puntuacion >= puntuacionmaxima) 
 		{
 			puntuacionmaxima = puntuacion;
