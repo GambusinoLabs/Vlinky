@@ -280,7 +280,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.848606
+  orthographic size: 4.34149
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -302,7 +302,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 219391107}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: -0.3, z: -10}
+  m_LocalPosition: {x: 0.7, y: -0.94, z: -10}
   m_LocalScale: {x: 0.73235905, y: 0.73235905, z: 0.73235905}
   m_Children: []
   m_Father: {fileID: 0}
@@ -842,7 +842,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 874159239}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 623, y: 319, z: 0}
+  m_LocalPosition: {x: 523, y: 267.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2143736689}
@@ -1282,7 +1282,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1062835184}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.44, y: 13.25, z: -0.06315014}
+  m_LocalPosition: {x: 2.31, y: 11.84, z: -0.06315014}
   m_LocalScale: {x: 1.950001, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1299,8 +1299,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a4aba49f92b95346802b0904d4077f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsToCount: 2
-  secondsToCount2: 5
+  curva:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 4
+      inSlope: -0.016202567
+      outSlope: -0.016202567
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 300
+      value: 0.2
+      inSlope: -0.025186975
+      outSlope: -0.025186975
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  curva2:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 20
+      inSlope: 0.012234343
+      outSlope: 0.012234343
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 21
+      value: 20
+      inSlope: 0.020437993
+      outSlope: 0.020437993
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 22
+      value: 6
+      inSlope: -0.03874908
+      outSlope: -0.03874908
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 300
+      value: 2
+      inSlope: -0.03767976
+      outSlope: -0.03767976
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
   gelatina: {fileID: 1533600284129574, guid: c591aae19860b5943841331908e9a000, type: 2}
   gelatina2: {fileID: 1501624294962978, guid: 3fd5a9d85cb23b84e98455bdcfba44fb, type: 2}
   variable: 10
@@ -2010,6 +2056,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b28dd476e52b4f249866dbf195c4435f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curvaVelocidad:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0.0055743335
+      outSlope: 0.0055743335
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 300.00305
+      value: 2.0080488
+      inSlope: 0.007405701
+      outSlope: 0.007405701
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &1577233472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2560,6 +2624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd8c1a7b55445e43b89345aeeaa94fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  masPuntos: {fileID: 1841998737022426, guid: 6a8ab270f1aa6d94da41881cc2db816b, type: 2}
   tiempoCD: 0.1
   velocidadMovimiento: 5
   contador: {fileID: 1577233468}
@@ -2614,7 +2679,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1934922024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.07, y: -3.888, z: -0.065651}
+  m_LocalPosition: {x: -0.94, y: -3.888, z: -0.065651}
   m_LocalScale: {x: 4.627653, y: 4.6276546, z: 4.6276546}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2790,7 +2855,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2015893998}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 702, y: 242, z: 0}
+  m_LocalPosition: {x: 702, y: 190.5, z: 0}
   m_LocalScale: {x: 4.76991, y: 4.7699, z: 4.7699}
   m_Children: []
   m_Father: {fileID: 874159240}
@@ -2913,7 +2978,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2143736686}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -42, y: 242, z: 0}
+  m_LocalPosition: {x: -42, y: 190.5, z: 0}
   m_LocalScale: {x: 4.7699075, y: 4.7699013, z: 4.7699013}
   m_Children: []
   m_Father: {fileID: 874159240}

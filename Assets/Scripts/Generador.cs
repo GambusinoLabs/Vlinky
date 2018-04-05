@@ -6,14 +6,14 @@ public class Generador : MonoBehaviour
 	// fields
 	float secondsCounter = 0;
 	float secondsCounter2 = 0;
-	GameObject gelatina_nueva;
-	GameObject gelatina_nueva2;
+	float secondsToCount;				
+	float secondsToCount2;			
 	int number = 0;
 	Vector3 rangoGenerador; 			// Determinará la posición base en la que se generarán los objetos.
 
 	// properties
-	public float secondsToCount = 1;	// Determina cada cuanto tiempo se genera un nuevo objeto del primer tipo.
-	public float secondsToCount2 = 1;	// Determina cada cuanto tiempo se genera un nuevo objeto del segundo tipo.
+	public AnimationCurve curva; 		// Determina cada cuanto tiempo se genera un nuevo objeto del primer tipo. 
+	public AnimationCurve curva2;		// Determina cada cuanto tiempo se genera un nuevo objeto del segundo tipo.
 	public GameObject gelatina;			// Determina el primer tipo de objeto a instanciar.
 	public GameObject gelatina2;		// Determina el segundo tipo de objeto a instanciar.
 	public int variable = 10;			// Determinará el rango de distancia en ambas direcciones en el que se generarán los objetos.
@@ -29,7 +29,9 @@ public class Generador : MonoBehaviour
 
 	void Update() 
 	{
-		
+			
+		secondsToCount = curva.Evaluate(Time.timeSinceLevelLoad);
+		secondsToCount2 = curva2.Evaluate(Time.timeSinceLevelLoad);
 		secondsCounter += Time.deltaTime;
 		// Si ha pasado tanto tiempo como indica la variable secondsToCount, se genera una gelatina.
 		if (secondsCounter >= secondsToCount) 
@@ -58,7 +60,7 @@ public class Generador : MonoBehaviour
 		// Si hay un objeto asignado en el inspector, se genera en la posicion determinada anteriormente, si no, el Debugger nos informa de que no está asignado.
 		if (gelatina != null) 
 		{
-			gelatina_nueva = (GameObject)Instantiate(gelatina, rangoGenerador, transform.rotation);
+			Instantiate(gelatina, rangoGenerador, transform.rotation);
 		} 
 		else 
 		{
@@ -75,7 +77,7 @@ public class Generador : MonoBehaviour
 		// Si hay un objeto asignado en el inspector, se genera en la posicion determinada anteriormente, si no, el Debugger nos informa de que no está asignado.
 		if (gelatina2 != null) 
 		{
-			gelatina_nueva2 = (GameObject)Instantiate(gelatina2, rangoGenerador, transform.rotation);
+			Instantiate(gelatina2, rangoGenerador, transform.rotation);
 		} 
 		else 
 		{

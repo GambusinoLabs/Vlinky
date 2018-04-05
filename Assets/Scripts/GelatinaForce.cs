@@ -18,11 +18,11 @@ public class GelatinaForce : MonoBehaviour
 	// methods
 	void Start() 
 	{
-		
+
 		rb = GetComponent<Rigidbody2D>();
 		// Provoca que se aplique una fuerza al Rigidbody que lleva este script, de manera aleatoria dentro de los rangos establecidos por los parametros anteriores.
 		rb.AddForce (new Vector3(Random.Range(vel_minima_X,vel_maxima_X), Random.Range(vel_minima_Y,vel_maxima_Y), Random.Range(vel_minima_Z, vel_maxima_Z)));
 	
 	}
-
+		
 }

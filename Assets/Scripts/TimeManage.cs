@@ -6,14 +6,23 @@ public class TimeManage : MonoBehaviour
 {
 	
 	// fields
-	float velocidad;
+	bool pausado = false;						// Define si el juego está pausado o no.
+	float multiplo = 1;
+	float velocidad; 							// Se usa para guardar la velocidad cuando se pausa el juego.
+
+	// properties
+	public AnimationCurve curvaVelocidad;		// Controla el aumento progresivo de velocidad.
 
 	// methods
 	void Update() 
 	{
 		
-		// Provoca que la velocidad del tiempo aumente gradualmente al avanzar la escena.
-		Time.timeScale = Time.timeScale + (Time.deltaTime * 0.01f);
+		// Provoca que la velocidad del tiempo aumente gradualmente al avanzar la escena en función a una curva del editor. 
+		if (pausado == false) 
+		{
+			Time.timeScale = (1 + curvaVelocidad.Evaluate(Time.timeSinceLevelLoad)) * multiplo;
+		}
+			print (Time.timeScale);
 
 	}
 
@@ -21,6 +30,7 @@ public class TimeManage : MonoBehaviour
 	{
 		
 		// Provoca que el tiempo en la escena se detenga y se guarde la velocidad que tenia antes de la pausa.
+		pausado = true;
 		velocidad = Time.timeScale;
 		Time.timeScale = 0;
 
@@ -32,6 +42,7 @@ public class TimeManage : MonoBehaviour
 		
 		// Provoca que la velocidad del tiempo en la escena vuelva a su estado antes de pausarla.
 		Time.timeScale = velocidad;
+		pausado = false;
 
 	}
 		
@@ -39,7 +50,7 @@ public class TimeManage : MonoBehaviour
 	{
 		
 		// Provoca que la velocidad del tiempo en la escena pase a ser el doble de la actual.
-		Time.timeScale = Time.timeScale * 2;
+		multiplo = multiplo *2;
 
 	}
 
@@ -47,7 +58,7 @@ public class TimeManage : MonoBehaviour
 	{
 		
 		// Provoca que la velocidad del tiempo en la escena pase a ser la mitad de la actual.
-		Time.timeScale = Time.timeScale / 2;
+		multiplo = multiplo / 2;
 
 	}
 		

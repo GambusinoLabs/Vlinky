@@ -7,6 +7,7 @@ TagManager:
   - Gelatina
   - BaldosaRota
   - GelatinaReparadora
+  - Enemigo
   layers:
   - Default
   - TransparentFX

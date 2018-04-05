@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\InspectorButtonAttribute.cs" />
      <Compile Include="Assets\Scripts\Muerte.cs" />
      <Compile Include="Assets\Scripts\Panel.cs" />
+     <Compile Include="Assets\Scripts\Puntos.cs" />
      <Compile Include="Assets\Scripts\Puntuacion.cs" />
      <Compile Include="Assets\Scripts\restart.cs" />
      <Compile Include="Assets\Scripts\TimeManage.cs" />
