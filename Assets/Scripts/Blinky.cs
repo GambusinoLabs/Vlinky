@@ -11,6 +11,7 @@ public class Blinky : MonoBehaviour
 	RaycastHit2D hit;
 
 	// properties
+	public Animator blinkyAnim;
 	public GameObject masPuntos;
 	public float tiempoCD;					// Determina el tiempo de enfriamiento que tiene el disparo de Blinky.
 	public float velocidadMovimiento;		// Determina la velocidad del movimiento de Blinky.
@@ -48,12 +49,15 @@ public class Blinky : MonoBehaviour
 		{
 			GetComponent<Rigidbody2D>().velocity = new Vector2 (-velocidadMovimiento, GetComponent<Rigidbody2D> ().velocity.y);
 			mirandoDerecha = false;
+			blinkyAnim.SetBool ("MirandoDer", false);
+			blinkyAnim.SetBool("Andando", true);
 		}
 
 		// Al soltar A, el personaje deja de moverse.
 		if (Input.GetKeyUp(KeyCode.A)) 
 		{
 			GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, GetComponent<Rigidbody2D> ().velocity.y);
+			blinkyAnim.SetBool("Andando", false);
 		}
 
 		// Al pulsar D el personaje se mueve, siempre que pueda moverse en ese momento.
@@ -61,12 +65,15 @@ public class Blinky : MonoBehaviour
 		{
 			GetComponent<Rigidbody2D>().velocity = new Vector2 (velocidadMovimiento, GetComponent<Rigidbody2D> ().velocity.y);
 			mirandoDerecha = true;
+			blinkyAnim.SetBool ("MirandoDer", true);
+			blinkyAnim.SetBool("Andando", true);
 		}
 
 		// Al soltar D, el personaje deja de moverse.
 		if (Input.GetKeyUp(KeyCode.D)) 
 		{
 			GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, GetComponent<Rigidbody2D> ().velocity.y);
+			blinkyAnim.SetBool ("Andando", false);
 		}
 			
 
@@ -76,7 +83,7 @@ public class Blinky : MonoBehaviour
 	{
 
 		puedeAndar = false;
-		gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+		blinkyAnim.SetBool ("Disparo", true);
 		// Si el personaje se haya mirando a la derecha, lanza un Raycast 45º en dirección a la derecha, de lo contrario, lo lanza 45º en dirección a la izquierda.
 		RaycastHit2D[] hits;
 		if (mirandoDerecha == true) 
@@ -94,6 +101,7 @@ public class Blinky : MonoBehaviour
 			if (hits[i].collider != null) 
 			{
 					Destroy(hits [i].collider.gameObject);
+					Destroy(hits[i].collider.gameObject.transform.parent.gameObject);
 					contador.Puntos(50);
 				Instantiate (masPuntos, hits [i].collider.transform.position, transform.rotation);
 				// Si ademas dicho Collider es una Gelatina reparadora, ejecuta su función reparar (presente en el script GelatinaReparadora, el cual lleva el propio Blinky).
@@ -105,10 +113,10 @@ public class Blinky : MonoBehaviour
 		}
 
 		// Mientras dispara, se detiene durante 0.3", sin poder moverse.
-		yield return new WaitForSecondsRealtime(.3f);
 
+		yield return new WaitForSecondsRealtime(.2f);
+		blinkyAnim.SetBool ("Disparo", false);
 		puedeAndar = true;
-		gameObject.GetComponent<SpriteRenderer>().color = Color.white;
 
 		}
 

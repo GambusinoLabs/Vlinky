@@ -53,6 +53,9 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Baldosas.cs" />
      <Compile Include="Assets\Scripts\Blinky.cs" />
+     <Compile Include="Assets\Scripts\Blinky2.cs" />
+     <Compile Include="Assets\Scripts\Destruccion.cs" />
+     <Compile Include="Assets\Scripts\Destruccion2.cs" />
      <Compile Include="Assets\Scripts\GelatinaForce.cs" />
      <Compile Include="Assets\Scripts\GelatinaReparadora.cs" />
      <Compile Include="Assets\Scripts\Generador.cs" />
