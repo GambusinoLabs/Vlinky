@@ -23,7 +23,7 @@ public class Blinky : MonoBehaviour
 
 		// Al pulsar espacio, el personaje dispara si no está en cooldoown.
 		Movimiento();
-		if ((Input.GetKeyDown (KeyCode.Space)) && (puedeAndar = true))
+		if ((Input.GetKeyDown (KeyCode.Space)) && (puedeAndar == true))
 		{
 			StartCoroutine("Disparo");
 		}
@@ -114,7 +114,7 @@ public class Blinky : MonoBehaviour
 
 		// Mientras dispara, se detiene durante 0.3", sin poder moverse.
 
-		yield return new WaitForSecondsRealtime(.2f);
+		yield return new WaitForSecondsRealtime(.3f);
 		blinkyAnim.SetBool ("Disparo", false);
 		puedeAndar = true;
 

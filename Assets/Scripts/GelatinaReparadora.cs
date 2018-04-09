@@ -90,9 +90,10 @@ public class GelatinaReparadora : MonoBehaviour
 	{
 		
 		// Repara la baldosa elegida como más cercana.
-		Destroy(elegida);
-		Instantiate(baldosaSana, elegida.transform.position, elegida.transform.rotation);
-
+		if (elegida != null) {
+			Destroy (elegida);
+			Instantiate (baldosaSana, elegida.transform.position, elegida.transform.rotation);
+		}
 	}
 		
 }

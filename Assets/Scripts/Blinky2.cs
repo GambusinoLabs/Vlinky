@@ -6,8 +6,13 @@ public class Blinky2 : MonoBehaviour
 {
 
 	// fields
+	bool disparando = false;   		// Determina si Blinky está disparando o no.
 	bool mirandoDerecha = true;		// Determina la dirección en la que está mirando Blinky, y por tanto en la que debe disparar.
+	bool moverDer = false;			// Determina si Blinky se está moviendo a la derecha o no.
+	bool moverIzq = false;			// Determina si Blinky se está moviendo a la izquierda o no.
 	bool puedeAndar = true;			// Determina si Blinky puede moverse o no (por estar disparando).
+
+
 	RaycastHit2D hit;
 
 	// properties
@@ -18,6 +23,38 @@ public class Blinky2 : MonoBehaviour
 	public Puntuacion contador;				// Aquí debe instanciarse el contador de puntos para que se sumen los puntos conseguidos.
 
 	// methods
+	void FixedUpdate()
+	{
+
+		if (moverIzq == true && puedeAndar == true) 
+		{
+			GetComponent<Rigidbody2D> ().velocity = new Vector2 (-velocidadMovimiento, GetComponent<Rigidbody2D> ().velocity.y);
+			mirandoDerecha = false;
+			blinkyAnim.SetBool ("MirandoDer", false);
+			blinkyAnim.SetBool ("Andando", true);
+		}
+
+		if (moverDer == true && puedeAndar == true)
+		{
+			GetComponent<Rigidbody2D> ().velocity = new Vector2 (velocidadMovimiento, GetComponent<Rigidbody2D> ().velocity.y);
+			mirandoDerecha = true;
+			blinkyAnim.SetBool ("MirandoDer", true);
+			blinkyAnim.SetBool ("Andando", true);
+		}
+
+		if (moverDer == false && moverIzq == false) {
+			GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, GetComponent<Rigidbody2D> ().velocity.y);
+			blinkyAnim.SetBool("Andando", false);
+		}
+			
+
+		if ((disparando == true) && (puedeAndar == true))
+		{
+			StartCoroutine("Disparo");
+		}
+
+	}
+
 	void LateUpdate()
 	{
 
@@ -25,56 +62,14 @@ public class Blinky2 : MonoBehaviour
 		if (puedeAndar == false)
 		{
 			GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, GetComponent<Rigidbody2D> ().velocity.y);
-		}
-
-	}
-
-	public void MovimientoIzq()
-	{
-
-		// Al pulsar A el personaje se mueve, siempre que pueda moverse en ese momento.
-		if ((puedeAndar == true)) 
-		{
-			GetComponent<Rigidbody2D>().velocity = new Vector2 (-velocidadMovimiento, GetComponent<Rigidbody2D> ().velocity.y);
-			mirandoDerecha = false;
-			blinkyAnim.SetBool ("MirandoDer", false);
-			blinkyAnim.SetBool("Andando", true);
-		}
-
-		// Al soltar A, el personaje deja de moverse.
-		if (Input.GetKeyUp(KeyCode.A)) 
-		{
-			GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, GetComponent<Rigidbody2D> ().velocity.y);
 			blinkyAnim.SetBool("Andando", false);
 		}
 
-		// Al pulsar D el personaje se mueve, siempre que pueda moverse en ese momento.
-
-
-
 	}
+		
+		
 
-	public void MovimientoDer()
-	{
-
-		if (puedeAndar == true) 
-		{
-			GetComponent<Rigidbody2D>().velocity = new Vector2 (velocidadMovimiento, GetComponent<Rigidbody2D> ().velocity.y);
-			mirandoDerecha = true;
-			blinkyAnim.SetBool ("MirandoDer", true);
-			blinkyAnim.SetBool("Andando", true);
-		}
-
-	
-		if (Input.GetKeyUp(KeyCode.D)) 
-		{
-			GetComponent<Rigidbody2D>().velocity = new Vector2 (0.0f, GetComponent<Rigidbody2D> ().velocity.y);
-			blinkyAnim.SetBool ("Andando", false);
-		}
-
-	}
-
-	public IEnumerator Disparo()
+	IEnumerator Disparo()
 	{
 
 		puedeAndar = false;
@@ -108,10 +103,45 @@ public class Blinky2 : MonoBehaviour
 		}
 
 		// Mientras dispara, se detiene durante 0.3", sin poder moverse.
-
-		yield return new WaitForSecondsRealtime(.2f);
+		yield return new WaitForSecondsRealtime(.3f);
 		blinkyAnim.SetBool ("Disparo", false);
 		puedeAndar = true;
+		disparando = false;
+
+	}
+
+	public void MovimientoDer()
+	{
+		
+		moverDer = true;
+
+	}
+
+	public void MovimientoIzq()
+	{
+		
+		moverIzq = true;
+
+	}
+
+	public void MovimientoDerStop()
+	{
+		
+		moverDer = false;
+
+	}
+
+	public void MovimientoIzqStop()
+	{
+		
+		moverIzq = false;
+
+	}
+
+	public void Disparar()
+	{
+		
+		disparando = true;
 
 	}
 

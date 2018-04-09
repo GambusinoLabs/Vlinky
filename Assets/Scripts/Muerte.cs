@@ -30,7 +30,7 @@ public class Muerte : MonoBehaviour {
 			Destroy(col.gameObject.transform.parent.gameObject);
 			blinkyAnim.SetBool("Muere", true);
 			yield return new WaitForSecondsRealtime(2);
-			Destroy(gameObject);
+			Destroy(gameObject);	
 			reiniciar.ResetearEscena();
 		}
 
