@@ -18,7 +18,6 @@ public class Blinky2 : MonoBehaviour
 	// properties
 	public Animator blinkyAnim;
 	public GameObject masPuntos;
-	public float tiempoCD;					// Determina el tiempo de enfriamiento que tiene el disparo de Blinky.
 	public float velocidadMovimiento;		// Determina la velocidad del movimiento de Blinky.
 	public Puntuacion contador;				// Aquí debe instanciarse el contador de puntos para que se sumen los puntos conseguidos.
 
@@ -90,9 +89,10 @@ public class Blinky2 : MonoBehaviour
 			// Cuando detecta uno o varios Collider al disparar los Raycast, dichos Collider son destruidos, aportando 50 puntos cada uno.
 			if (hits[i].collider != null) 
 			{
-				Destroy(hits [i].collider.gameObject);
+				//Destroy(hits [i].collider.gameObject);
+				print (hits[i].collider);
 				Destroy(hits[i].collider.gameObject.transform.parent.gameObject);
-				contador.Puntos(50);
+				contador.GetComponent<Puntuacion> ().Puntos (50);
 				Instantiate (masPuntos, hits [i].collider.transform.position, transform.rotation);
 				// Si ademas dicho Collider es una Gelatina reparadora, ejecuta su función reparar (presente en el script GelatinaReparadora, el cual lleva el propio Blinky).
 				if (hits [i].collider.gameObject.tag == "GelatinaReparadora") 

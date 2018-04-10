@@ -10,7 +10,7 @@ public class GelatinaReparadora : MonoBehaviour
 	float baldosaReparable2 = 0;
 	GameObject baldosaDerecha;
 	GameObject baldosaIzquierda;
-	GameObject elegida;
+	public static GameObject elegida = null;
 	RaycastHit2D hitLeft;
 	RaycastHit2D hitRight;
 
@@ -91,8 +91,11 @@ public class GelatinaReparadora : MonoBehaviour
 		
 		// Repara la baldosa elegida como más cercana.
 		if (elegida != null) {
-			Destroy (elegida);
-			Instantiate (baldosaSana, elegida.transform.position, elegida.transform.rotation);
+			elegida.GetComponent<BaldosaRota>().ActivarDin ();
+		} 
+		else
+		{	
+			Debug.Log ("NO HAY");
 		}
 	}
 		

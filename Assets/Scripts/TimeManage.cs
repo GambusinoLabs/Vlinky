@@ -22,7 +22,6 @@ public class TimeManage : MonoBehaviour
 		{
 			Time.timeScale = (1 + curvaVelocidad.Evaluate(Time.timeSinceLevelLoad)) * multiplo;
 		}
-			print (Time.timeScale);
 
 	}
 

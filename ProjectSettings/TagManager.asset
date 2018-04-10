@@ -8,6 +8,7 @@ TagManager:
   - BaldosaRota
   - GelatinaReparadora
   - Enemigo
+  - ActivaDin
   layers:
   - Default
   - TransparentFX
@@ -42,6 +43,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Canvas
+    uniqueID: 768683293
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

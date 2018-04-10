@@ -7,12 +7,12 @@ PlayerSettings:
   productGUID: 57b2d09d3dbe2e44384ecf810a6cb844
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
-  defaultScreenOrientation: 2
+  defaultScreenOrientation: 3
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: Pruebas Kyoros
+  companyName: Gambusino Labs
+  productName: 'Both: Jelly Rain'
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.44198745, g: 0.60809344, b: 0.8014706, a: 1}
