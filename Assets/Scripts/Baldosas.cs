@@ -15,10 +15,10 @@ public class Baldosas : MonoBehaviour
 
 		if (col.gameObject.tag == "Enemigo") 
 		{
-			Destroy(gameObject);
-			Destroy(col.gameObject);
-			Destroy(col.gameObject.transform.parent.gameObject);
-			Instantiate(baldosarota, transform.position, transform.rotation);
+			Destroy(gameObject);													// Provoca que se rompa la baldosa al recibir un impacto de un enemigo.
+			Destroy(col.gameObject);												// Provoca que el Trigger que ha hecho contacto con la baldosa se destruya.
+			Destroy(col.gameObject.transform.parent.gameObject);					// Provoca que el padre del Trigger que ha hecho contacto se destruya también, desapareciendo la gelatina.
+			Instantiate(baldosarota, transform.position, transform.rotation);		// Hace aparecer un hueco (baldosa rota) en lugar de la baldosa destruida.
 		}
 			
 	}

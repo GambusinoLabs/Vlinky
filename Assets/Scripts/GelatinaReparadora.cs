@@ -22,8 +22,8 @@ public class GelatinaReparadora : MonoBehaviour
 	{
 		
 		// Lanza un rayo hacia la derecha y otro hacia a la izquierda con el fin de encontrar baldosas rotas.
-		hitRight = Physics2D.Raycast (GetComponent<Rigidbody2D> ().transform.position, Vector2.right, 300f);
-		hitLeft = Physics2D.Raycast (GetComponent<Rigidbody2D> ().transform.position, Vector2.left, 300f);
+		hitRight = Physics2D.Raycast(GetComponent<Rigidbody2D>().transform.position, Vector2.right, 300f);
+		hitLeft = Physics2D.Raycast(GetComponent<Rigidbody2D>().transform.position, Vector2.left, 300f);
 		if (hitRight.collider != null)
 		{
 			Right();
@@ -91,12 +91,13 @@ public class GelatinaReparadora : MonoBehaviour
 		
 		// Repara la baldosa elegida como más cercana.
 		if (elegida != null) {
-			elegida.GetComponent<BaldosaRota>().ActivarDin ();
+			elegida.GetComponent<BaldosaRota>().ActivarDin();
 		} 
 		else
 		{	
-			Debug.Log ("NO HAY");
+			Debug.Log("NO HAY");
 		}
+
 	}
 		
 }

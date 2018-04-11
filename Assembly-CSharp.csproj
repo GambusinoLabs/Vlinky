@@ -51,20 +51,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\AnimaGelatina.cs" />
      <Compile Include="Assets\Scripts\BaldosaRota.cs" />
      <Compile Include="Assets\Scripts\Baldosas.cs" />
      <Compile Include="Assets\Scripts\Blinky.cs" />
      <Compile Include="Assets\Scripts\Blinky2.cs" />
+     <Compile Include="Assets\Scripts\Blinky3.cs" />
      <Compile Include="Assets\Scripts\Destruccion.cs" />
      <Compile Include="Assets\Scripts\Destruccion2.cs" />
+     <Compile Include="Assets\Scripts\DestruccionDin.cs" />
      <Compile Include="Assets\Scripts\Din.cs" />
+     <Compile Include="Assets\Scripts\FadeOut.cs" />
      <Compile Include="Assets\Scripts\GelatinaForce.cs" />
      <Compile Include="Assets\Scripts\GelatinaReparadora.cs" />
      <Compile Include="Assets\Scripts\Generador.cs" />
      <Compile Include="Assets\Scripts\Iniciar.cs" />
      <Compile Include="Assets\Scripts\Muerte.cs" />
      <Compile Include="Assets\Scripts\Panel.cs" />
-     <Compile Include="Assets\Scripts\Puntos.cs" />
      <Compile Include="Assets\Scripts\Puntuacion.cs" />
      <Compile Include="Assets\Scripts\restart.cs" />
      <Compile Include="Assets\Scripts\TimeManage.cs" />

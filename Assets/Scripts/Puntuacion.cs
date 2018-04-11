@@ -5,6 +5,7 @@ using UnityEngine.UI;
 // Se encarga de controlar el sistema de puntuación. Debe asignarse a un objeto vacío.
 public class Puntuacion : MonoBehaviour 
 {
+	
 	// fields
 	int puntuacion = 0;							// Controla la puntuación actual.
 

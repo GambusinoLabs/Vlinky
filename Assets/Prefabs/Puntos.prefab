@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4902738454492078}
   - component: {fileID: 212855649931413514}
-  - component: {fileID: 114566298953459016}
+  - component: {fileID: 114592655717785300}
   m_Layer: 0
   m_Name: Puntos
   m_TagString: Untagged
@@ -41,7 +41,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114566298953459016
+--- !u!114 &114592655717785300
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1841998737022426}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cbb5219fb94a864fb819c3b5b32fa7a, type: 3}
+  m_Script: {fileID: 11500000, guid: b88444965ea72204eb360a3bf0cc7fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212855649931413514

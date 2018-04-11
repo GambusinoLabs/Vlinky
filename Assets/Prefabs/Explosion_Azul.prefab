@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4884364405332372}
   - component: {fileID: 212020662107994196}
   - component: {fileID: 95064547887284524}
-  - component: {fileID: 114356705355775830}
+  - component: {fileID: 114310676649229276}
   m_Layer: 0
   m_Name: Explosion_Azul
   m_TagString: Untagged
@@ -53,13 +53,13 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d2483c9bcae6474a8e7003ad0b24e71, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114356705355775830
+--- !u!114 &114310676649229276
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1630346226510138}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b88444965ea72204eb360a3bf0cc7fb9, type: 3}
+  m_Script: {fileID: 11500000, guid: 9cbb5219fb94a864fb819c3b5b32fa7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212020662107994196

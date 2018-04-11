@@ -9,6 +9,7 @@ TagManager:
   - GelatinaReparadora
   - Enemigo
   - ActivaDin
+  - Din
   layers:
   - Default
   - TransparentFX

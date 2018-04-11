@@ -3,6 +3,7 @@ using System.Collections;
 // Se encarga de generar gelatinas cada tiempo determinado en una posición aleatoria de un rango determinado.
 public class Generador : MonoBehaviour 
 {
+	
 	// fields
 	float secondsCounter = 0;
 	float secondsCounter2 = 0;
@@ -56,7 +57,7 @@ public class Generador : MonoBehaviour
 	{
 		
 		// Determina un rango aleatorio, partiendo de la posición del objeto que lleva este script, añadiendole una distancia igual a variable en cada dirección.
-		rangoGenerador = new Vector3 (Random.Range (transform.position.x - variable, transform.position.x + variable), transform.position.y, transform.position.z);
+		rangoGenerador = new Vector3(Random.Range(transform.position.x - variable, transform.position.x + variable), transform.position.y, transform.position.z);
 		// Si hay un objeto asignado en el inspector, se genera en la posicion determinada anteriormente, si no, el Debugger nos informa de que no está asignado.
 		if (gelatina != null) 
 		{
@@ -73,7 +74,7 @@ public class Generador : MonoBehaviour
 	{
 		
 		// Determina un rango aleatorio, partiendo de la posición del objeto que lleva este script, añadiendole una distancia igual a variable en cada dirección.
-		rangoGenerador = new Vector3 (Random.Range (transform.position.x - variable, transform.position.x + variable), transform.position.y, transform.position.z);
+		rangoGenerador = new Vector3(Random.Range (transform.position.x - variable, transform.position.x + variable), transform.position.y, transform.position.z);
 		// Si hay un objeto asignado en el inspector, se genera en la posicion determinada anteriormente, si no, el Debugger nos informa de que no está asignado.
 		if (gelatina2 != null) 
 		{

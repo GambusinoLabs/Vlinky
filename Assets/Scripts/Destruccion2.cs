@@ -6,11 +6,11 @@ public class Destruccion2 : MonoBehaviour
 {
 
 	// Use this for initialization
-	void Start () 
+	void Start() 
 	{
 
-		Destroy (gameObject, 1);
-
+		Destroy(gameObject, 1);
+	
 	}
 
 }

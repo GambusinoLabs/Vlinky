@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4531107760628046}
   - component: {fileID: 212500872211240730}
   - component: {fileID: 95901970124641118}
-  - component: {fileID: 114619052193940730}
+  - component: {fileID: 114959422723435958}
   m_Layer: 0
   m_Name: Explosion_Naranja
   m_TagString: Untagged
@@ -53,13 +53,13 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 18214d59400a261479867bb3c87af5db, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114619052193940730
+--- !u!114 &114959422723435958
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1924343389553806}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b88444965ea72204eb360a3bf0cc7fb9, type: 3}
+  m_Script: {fileID: 11500000, guid: 9cbb5219fb94a864fb819c3b5b32fa7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212500872211240730

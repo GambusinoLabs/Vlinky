@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 61236154299721040}
   m_Layer: 2
   m_Name: dim (1)_0
-  m_TagString: Untagged
+  m_TagString: Din
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +100,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: b2c330dcdbc5aab45bf29d9f221f4226, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -117,8 +117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3897d1d731a8f504887edeb9eaa0f148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Y: -15
   dinBajando: 0
+  Y: -15
 --- !u!212 &212413832538513672
 SpriteRenderer:
   m_ObjectHideFlags: 1
