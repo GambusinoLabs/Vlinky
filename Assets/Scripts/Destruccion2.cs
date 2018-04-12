@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// Destruye un objeto 1 segundo después de ser creado.
 public class Destruccion2 : MonoBehaviour 
 {
 
-	// Use this for initialization
 	void Start() 
 	{
 

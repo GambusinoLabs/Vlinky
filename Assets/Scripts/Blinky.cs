@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// Se encarga de regular el movimiento y los disparos de Blinky, estrechamente relacionados entre ellos. 
+// Se encarga de regular el movimiento y los disparos de Blinky, estrechamente relacionados entre ellos. Versión teclado.
 public class Blinky : MonoBehaviour 
 {
 

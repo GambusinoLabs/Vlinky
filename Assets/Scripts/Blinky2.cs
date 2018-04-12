@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// Se encarga de regular el movimiento y los disparos de Blinky, estrechamente relacionados entre ellos. 
+// Se encarga de regular el movimiento y los disparos de Blinky, estrechamente relacionados entre ellos. Versión botones (móvil). Dispara hacia la dirección a la que esté mirando. 
 public class Blinky2 : MonoBehaviour 
 {
 

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// Controla el movimiento y disparo de Blinky, estrechamente relacionados. Versión botones (Móvil). Cada botón dispara en una dirección.
 public class Blinky3 : MonoBehaviour 
 	{
 
@@ -62,10 +62,15 @@ public class Blinky3 : MonoBehaviour
 				StartCoroutine("Disparo");
 			}
 
-		}
-
-		void LateUpdate()
-		{
+			// Provisional para testear desde el editor
+			if (Input.GetKeyDown (KeyCode.A)) 
+			{
+				DispararIzq ();
+			}
+			if (Input.GetKeyDown (KeyCode.S)) 
+			{
+				DispararDer ();
+			}
 
 			// Si el personaje está disparando, se detiene su movimiento.
 			if (puedeAndar == false)
@@ -75,7 +80,6 @@ public class Blinky3 : MonoBehaviour
 			}
 
 		}
-
 
 
 		IEnumerator Disparo()
@@ -148,17 +152,19 @@ public class Blinky3 : MonoBehaviour
 		public void DispararIzq()
 		{
 
-			disparandoIzq = true;
 			blinkyAnim.SetBool ("MirandoDer", false);
-
+			disparandoIzq = true;
+			
 		}
 		
 		public void DispararDer()
 		{
 
+			blinkyAnim.SetBool ("MirandoDer", true);	
 			disparandoDer = true;
-			blinkyAnim.SetBool ("MirandoDer", true);
 			
 		}
+
+
 
 	}

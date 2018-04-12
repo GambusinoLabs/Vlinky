@@ -4,7 +4,7 @@ using UnityEngine;
 // Provoca que el objeto que lleva este script desaparezca paulatinamente antes de ser destruido.	
 public class FadeOut : MonoBehaviour 
 {	
-
+	
 	SpriteRenderer img;
 	
 	void Start()
@@ -12,10 +12,11 @@ public class FadeOut : MonoBehaviour
 
 		img = GetComponent<SpriteRenderer>();
 		StartCoroutine("Fade");
-		Destroy (gameObject, 1);
+		Destroy (gameObject, 1);		// El objeto es destruido 1 segundo después de iniciar el FadeOut, dando la sensación de desaparecer.
 	
 	}
 
+	// Reduce paulatinamente el Alpha del objeto que lleva el script, en función al tiempo transcurrido.
 	IEnumerator Fade()
 	{
 			for (float i = 1; i >= 0; i -= Time.deltaTime)

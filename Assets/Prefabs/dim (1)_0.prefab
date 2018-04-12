@@ -118,7 +118,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dinBajando: 0
-  Y: -15
+  Y: -16
+  baldosaSana: {fileID: 1061514649070742, guid: 3a26835f865171b4095dca920bc458c2,
+    type: 2}
 --- !u!212 &212413832538513672
 SpriteRenderer:
   m_ObjectHideFlags: 1

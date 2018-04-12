@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// Se encarga de hacer aparecer a Din cada vez que una baldosa es destruida, así como hacer volver a aparecer las baldosas sanas.
+// Se encarga de hacer aparecer a Din cada vez que una baldosa es destruida y activarlo cuando es necesario repararla.
 public class BaldosaRota : MonoBehaviour 
 {
 	
@@ -12,7 +12,6 @@ public class BaldosaRota : MonoBehaviour
 	// properties
 	public Din Din;						// Instanciar el Prefab de Din.
 	public float Y = 0;					// Indicar la altura a la que debe aparecer Din respecto al suelo.
-	public GameObject baldosaSana;		// Instanciar el Prefab de Baldosa.
 
 
 	// methodos
@@ -32,14 +31,6 @@ public class BaldosaRota : MonoBehaviour
 		DinNuevo.dinBajando = true;			
 	
 	}
-
-
-	void OnDestroy()
-	{
 		
-		// Hace aparecer una baldosa sana en el lugar donde estaba esta.
-		Instantiate(baldosaSana, transform.position, transform.rotation);
-
-	}
 
 }

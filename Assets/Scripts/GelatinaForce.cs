@@ -28,7 +28,7 @@ public class GelatinaForce : MonoBehaviour
 
 	void OnDestroy()
 	{
-
+		// Provoca que, al ser destruido el objeto, se genere el objeto que contiene la animación de la explosión.
 		Instantiate(explosion, transform.position, transform.rotation);
 
 	}
