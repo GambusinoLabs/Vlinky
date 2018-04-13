@@ -10,6 +10,7 @@ TagManager:
   - Enemigo
   - ActivaDin
   - Din
+  - GelatinaTotal
   layers:
   - Default
   - TransparentFX

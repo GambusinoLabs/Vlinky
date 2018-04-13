@@ -17,69 +17,73 @@ public class Blinky3 : MonoBehaviour
 		// properties
 		public Animator blinkyAnim;				// Animaciones del personaje.
 		public GameObject masPuntos;			// El objeto que se mostrará al destruir una gelatina.
+		public GameObject masPuntos2;			// El objeto que se mostrará al destruir una gelatina.
+		public GameObject masPuntos3;			// El objeto que se mostrará al destruir una gelatina.
+		public GameObject masPuntos4;			// El objeto que se mostrará al destruir una gelatina.
 		public float velocidadMovimiento;		// Determina la velocidad del movimiento de Blinky.
 		public Puntuacion contador;				// Aquí debe instanciarse el contador de puntos para que se sumen los puntos conseguidos.
 
 		// methods
 		void FixedUpdate()
-		{
+	{
 
-			if ((moverIzq == true) && (puedeAndar == true)) 
+		if ((moverIzq == true) && (puedeAndar == true)) {
+			// Provoca que Blinky camine hacia la izquierda, activando su animación y moviendolo.
+			GetComponent<Rigidbody2D> ().velocity = new Vector2 (-velocidadMovimiento, GetComponent<Rigidbody2D> ().velocity.y);
+			mirandoDerecha = false;
+			blinkyAnim.SetBool ("MirandoDer", false);
+			blinkyAnim.SetBool ("Andando", true);
+		}
+
+		if ((moverDer == true) && (puedeAndar == true)) {
+			// Provoca que Blinky camine hacia la derecha, activando su animación y moviendolo.
+			GetComponent<Rigidbody2D> ().velocity = new Vector2 (velocidadMovimiento, GetComponent<Rigidbody2D> ().velocity.y);
+			mirandoDerecha = true;
+			blinkyAnim.SetBool ("MirandoDer", true);
+			blinkyAnim.SetBool ("Andando", true);
+		}
+
+		if ((moverDer == false) && (moverIzq == false)) {
+			// Provoca que Blinky detenga su movimiento.
+			GetComponent<Rigidbody2D> ().velocity = new Vector2 (0.0f, GetComponent<Rigidbody2D> ().velocity.y);
+			blinkyAnim.SetBool ("Andando", false);
+		}
+
+
+		if ((disparandoDer == true) && (puedeAndar == true)) {
+			// Inicia la Corrutina de Disparo.
+			StartCoroutine ("Disparo");
+		}
+
+		if ((disparandoIzq == true) && (puedeAndar == true)) {
+			// Inicia la Corrutina de Disparo.
+			StartCoroutine ("Disparo");
+		}
+
+		// Provisional para testear desde el editor
+		if (Input.GetKeyDown (KeyCode.A)) {
+			DispararIzq ();
+		}
+		if (Input.GetKeyDown (KeyCode.S)) {
+			DispararDer ();
+		}
+
+		// Si el personaje está disparando, se detiene su movimiento.
+		if (puedeAndar == false) {
+			GetComponent<Rigidbody2D> ().velocity = new Vector2 (0.0f, GetComponent<Rigidbody2D> ().velocity.y);
+			blinkyAnim.SetBool ("Andando", false);
+			if (disparandoIzq == true) 
 			{
-				// Provoca que Blinky camine hacia la izquierda, activando su animación y moviendolo.
-				GetComponent<Rigidbody2D>().velocity = new Vector2(-velocidadMovimiento, GetComponent<Rigidbody2D> ().velocity.y);
-				mirandoDerecha = false;
-				blinkyAnim.SetBool("MirandoDer", false);
-				blinkyAnim.SetBool("Andando", true);
+				blinkyAnim.SetBool ("MirandoDer", false);
+			
 			}
-
-			if ((moverDer == true) && (puedeAndar == true))
+			if (disparandoDer == true) 
 			{
-				// Provoca que Blinky camine hacia la derecha, activando su animación y moviendolo.
-				GetComponent<Rigidbody2D>().velocity = new Vector2(velocidadMovimiento, GetComponent<Rigidbody2D> ().velocity.y);
-				mirandoDerecha = true;
-				blinkyAnim.SetBool("MirandoDer", true);
-				blinkyAnim.SetBool("Andando", true);
-			}
-
-			if ((moverDer == false) && (moverIzq == false)) 
-			{
-				// Provoca que Blinky detenga su movimiento.
-				GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, GetComponent<Rigidbody2D> ().velocity.y);
-				blinkyAnim.SetBool("Andando", false);
-			}
-
-
-			if ((disparandoDer == true) && (puedeAndar == true))
-			{
-				// Inicia la Corrutina de Disparo.
-				StartCoroutine("Disparo");
-			}
-
-			if ((disparandoIzq == true) && (puedeAndar == true))
-			{
-				// Inicia la Corrutina de Disparo.
-				StartCoroutine("Disparo");
-			}
-
-			// Provisional para testear desde el editor
-			if (Input.GetKeyDown (KeyCode.A)) 
-			{
-				DispararIzq ();
-			}
-			if (Input.GetKeyDown (KeyCode.S)) 
-			{
-				DispararDer ();
-			}
-
-			// Si el personaje está disparando, se detiene su movimiento.
-			if (puedeAndar == false)
-			{
-				GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, GetComponent<Rigidbody2D> ().velocity.y);
-				blinkyAnim.SetBool("Andando", false);
+				blinkyAnim.SetBool ("MirandoDer", true);
 			}
 
 		}
+	}
 
 
 		IEnumerator Disparo()
@@ -101,17 +105,40 @@ public class Blinky3 : MonoBehaviour
 				//Destroy(hits [i].collider.gameObject);
 				print (hits [i].collider);
 				Destroy (hits [i].collider.gameObject.transform.parent.gameObject);
-				contador.GetComponent<Puntuacion> ().Puntos (50);
-				Instantiate (masPuntos, hits [i].collider.transform.position, transform.rotation);
+				if (hits.Length == 1) 
+				{
+					Instantiate (masPuntos, hits [i].collider.transform.position, transform.rotation);
+					contador.GetComponent<Puntuacion> ().Puntos (50);
+				}
+				if (hits.Length == 2) 
+				{
+					Instantiate (masPuntos2, hits [i].collider.transform.position, transform.rotation);
+					contador.GetComponent<Puntuacion> ().Puntos (100);
+				}
+				if (hits.Length == 3) 
+				{
+					Instantiate (masPuntos3, hits [i].collider.transform.position, transform.rotation);
+					contador.GetComponent<Puntuacion> ().Puntos (300);
+				}
+				if (hits.Length >= 4) 
+				{
+					Instantiate (masPuntos4, hits [i].collider.transform.position, transform.rotation);
+					contador.GetComponent<Puntuacion> ().Puntos (1000);
+				}
 				// Si ademas dicho Collider es una Gelatina reparadora, ejecuta su función reparar (presente en el script GelatinaReparadora, el cual lleva el propio Blinky).
 				if (hits [i].collider.gameObject.tag == "GelatinaReparadora") {
 					gameObject.GetComponent<GelatinaReparadora> ().Reparar ();
+				}
+				if (hits [i].collider.gameObject.tag == "GelatinaTotal") {
+					gameObject.GetComponent<GelatinaTotal> ().aciertos = hits.Length;
+					gameObject.GetComponent<GelatinaTotal>().StartCoroutine ("GelatinaTot");
+					gameObject.GetComponent<GelatinaTotal>().StartCoroutine ("GelatinaTot1");
 				}
 			}
 		}
 
 		// Mientras dispara, se detiene durante 0.3", sin poder moverse. Posteriormente se reanuda el poder andar y finaliza la animación del disparo.
-		yield return new WaitForSecondsRealtime (.3f);
+		yield return new WaitForSecondsRealtime (.2f);
 		blinkyAnim.SetBool ("Disparo", false);
 		puedeAndar = true;
 		disparandoIzq = false;

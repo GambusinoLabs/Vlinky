@@ -12,6 +12,8 @@ public class BaldosaRota : MonoBehaviour
 	// properties
 	public Din Din;						// Instanciar el Prefab de Din.
 	public float Y = 0;					// Indicar la altura a la que debe aparecer Din respecto al suelo.
+	public GameObject baldosaSana;		// Instanciar el Prefab de la baldosa.
+
 
 
 	// methodos
@@ -23,6 +25,14 @@ public class BaldosaRota : MonoBehaviour
 
 	}
 
+	void OnTriggerEnter2D(Collider2D col)
+	{
+
+		if (col.tag == "Din")
+		{
+			StartCoroutine ("Sustitucion");
+		}
+	}
 
 	public void ActivarDin()
 	{
@@ -31,6 +41,10 @@ public class BaldosaRota : MonoBehaviour
 		DinNuevo.dinBajando = true;			
 	
 	}
-		
 
+	IEnumerator Sustitucion(){
+		yield return new WaitForSeconds (.2f);
+		Instantiate (baldosaSana, transform.position, transform.rotation);
+		Destroy (gameObject);
+	}
 }

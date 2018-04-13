@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 61938357587460500}
   - component: {fileID: 50115796922132634}
   - component: {fileID: 232487776847174590}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Collider2
   m_TagString: Enemigo
   m_Icon: {fileID: 0}

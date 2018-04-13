@@ -14,8 +14,6 @@ public class Din : MonoBehaviour
 	// properties
 	public bool dinBajando = false;		// Inicia la acción de descenso de Din. Se llama desde el Script "Baldosa Rota".
 	public float Y = 0;					// Determina la velocidad de bajada de Din.
-	public GameObject baldosaSana;		// Instanciar el Prefab de la baldosa.
-
 
 	// methods
 	void Start() 
@@ -33,9 +31,6 @@ public class Din : MonoBehaviour
 		{
 			rb.velocity = new Vector2(0, Y);
 			anim.SetBool("Din", true);
-			if (reparable == null) {
-				reparable = GelatinaReparadora.elegida;		// Elige como reparable la baldosa rota más cercana en el momento de activarse la bajada de Din (es decir, al romper una gelatina azul).
-			}
 		}
 
 		StartCoroutine("AnimacionDin");
@@ -50,8 +45,6 @@ public class Din : MonoBehaviour
 		{
 			tocandoSuelo = true;
 			dinBajando = false;
-			Instantiate (baldosaSana, reparable.transform.position, reparable.transform.rotation);
-			Destroy (reparable);
 		}
 
 	}
