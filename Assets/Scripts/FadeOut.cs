@@ -6,13 +6,15 @@ public class FadeOut : MonoBehaviour
 {	
 	
 	SpriteRenderer img;
+	public int X = 1;
+	public float Y = 1;
 	
 	void Start()
 	{
 
 		img = GetComponent<SpriteRenderer>();
 		StartCoroutine("Fade");
-		Destroy (gameObject, 1);		// El objeto es destruido 1 segundo después de iniciar el FadeOut, dando la sensación de desaparecer.
+		Destroy (gameObject, X);		// El objeto es destruido 1 segundo después de iniciar el FadeOut, dando la sensación de desaparecer.
 	
 	}
 
@@ -21,7 +23,7 @@ public class FadeOut : MonoBehaviour
 	{
 			for (float i = 1; i >= 0; i -= Time.deltaTime)
 			{
-				img.color = new Color (1, 1, 1, i);
+				img.color = new Color (1, 1, 1, i/Y);
 				yield return null;
 			}
 		}

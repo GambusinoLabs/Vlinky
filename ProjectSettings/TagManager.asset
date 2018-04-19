@@ -45,6 +45,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Fondo
+    uniqueID: 4241067359
+    locked: 0
   - name: Canvas
     uniqueID: 768683293
     locked: 0

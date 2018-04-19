@@ -10,19 +10,39 @@ public class Panel : MonoBehaviour
 	public Animator anim2;
 
 	// methods
-	public void PanelIn() 
+	public void Settings() 
 	{
 		
-		anim.SetBool("A", true);
-		anim2.SetBool("B", true);
+		anim.SetBool("Settings", true);
+		anim2.SetBool("Settings", true);
+
+	}
+
+	public void Credits() 
+	{
+
+		anim.SetBool("Credits", true);
+		anim2.SetBool("Credits", true);
+
+	}
+
+	public void Scoreboards() 
+	{
+
+		anim.SetBool("Scoreboards", true);
+		anim2.SetBool("Scoreboards", true);
 
 	}
 		
-	public void PanelOut() 
+	public void Standar() 
 	{
 		
-		anim.SetBool("A", false);
-		anim2.SetBool("B", false);
+		anim.SetBool("Settings", false);
+		anim2.SetBool("Settings", false);
+		anim.SetBool("Credits", false);
+		anim2.SetBool("Credits", false);
+		anim.SetBool("Scoreboards", false);
+		anim2.SetBool("Scoreboards", false);
 
 	}
 

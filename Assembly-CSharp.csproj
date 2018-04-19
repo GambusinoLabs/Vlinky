@@ -62,12 +62,15 @@
      <Compile Include="Assets\Scripts\DestruccionDin.cs" />
      <Compile Include="Assets\Scripts\Din.cs" />
      <Compile Include="Assets\Scripts\FadeOut.cs" />
+     <Compile Include="Assets\Scripts\FollowCamera.cs" />
      <Compile Include="Assets\Scripts\GelatinaForce.cs" />
      <Compile Include="Assets\Scripts\GelatinaReparadora.cs" />
      <Compile Include="Assets\Scripts\GelatinaTotal.cs" />
      <Compile Include="Assets\Scripts\Generador.cs" />
+     <Compile Include="Assets\Scripts\GodMode.cs" />
      <Compile Include="Assets\Scripts\Muerte.cs" />
      <Compile Include="Assets\Scripts\Panel.cs" />
+     <Compile Include="Assets\Scripts\Pausa.cs" />
      <Compile Include="Assets\Scripts\Puntuacion.cs" />
      <Compile Include="Assets\Scripts\restart.cs" />
      <Compile Include="Assets\Scripts\SceneManagement.cs" />
