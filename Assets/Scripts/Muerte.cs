@@ -6,7 +6,7 @@ public class Muerte : MonoBehaviour {
 	
 	// properties
 	public Animator blinkyAnim;
-	public restart reiniciar;	 // Debe asignarse un objeto con el script restart.
+	public Retry reiniciar;	 // Debe asignarse un objeto con el script restart.
 	public float Y;
 	public bool godMode = false;
 	Blinky3 blinky;
@@ -38,7 +38,7 @@ public class Muerte : MonoBehaviour {
 				GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, -Y / 2);
 				yield return new WaitForSecondsRealtime (2);
 				Destroy (gameObject);
-				reiniciar.ResetearEscena ();
+				reiniciar.RetryGame ();
 			}
 
 			// Provoca que, si el objeto que lleva este script entra en contacto con una gelatina reparadora, sea destruido y la escena se reinicie.
@@ -57,7 +57,7 @@ public class Muerte : MonoBehaviour {
 				GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, -Y / 2);
 				yield return new WaitForSecondsRealtime (2);
 				Destroy (gameObject);
-				reiniciar.ResetearEscena ();
+				reiniciar.RetryGame ();
 			}
 
 			if (col.gameObject.tag == "GelatinaTotal") {	
@@ -75,7 +75,7 @@ public class Muerte : MonoBehaviour {
 				GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, -Y / 2);
 				yield return new WaitForSecondsRealtime (2);
 				Destroy (gameObject);
-				reiniciar.ResetearEscena ();
+				reiniciar.RetryGame ();
 			}
 		}
 	}

@@ -21,9 +21,9 @@ public class FadeOut : MonoBehaviour
 	// Reduce paulatinamente el Alpha del objeto que lleva el script, en función al tiempo transcurrido.
 	IEnumerator Fade()
 	{
-			for (float i = 1; i >= 0; i -= Time.deltaTime)
+			for (float i = 1; i >= 0; i -= Time.deltaTime*Y)
 			{
-				img.color = new Color (1, 1, 1, i/Y);
+				img.color = new Color (1, 1, 1, i);
 				yield return null;
 			}
 		}
