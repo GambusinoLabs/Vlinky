@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class Pausa : MonoBehaviour 
 {
+	public VideoPlayer video;
 
 	public Animator anim;
 
@@ -11,6 +13,7 @@ public class Pausa : MonoBehaviour
 	{
 
 		anim.SetBool ("Pausa", true);
+		video.Pause ();
 		
 	}
 
@@ -18,6 +21,7 @@ public class Pausa : MonoBehaviour
 	{
 
 		anim.SetBool ("Pausa", false);
+		video.Play ();
 
 	}
 }

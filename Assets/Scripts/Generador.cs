@@ -49,7 +49,7 @@ public class Generador : MonoBehaviour
 
 		secondsCounter2 += (Time.deltaTime / 2);
 		// Si ha pasado tanto tiempo como indica la variable secondsToCount2, se genera una gelatina.
-		if ((Time.time >= 30f) && (secondsCounter2 >= secondsToCount2)) 
+		if ((Time.time >= 60f) && (secondsCounter2 >= secondsToCount2)) 
 		{
 			secondsCounter2 = 0;
 			number++;
@@ -57,7 +57,7 @@ public class Generador : MonoBehaviour
 		}
 
 		secondsCounter3 += Time.deltaTime;
-		if (secondsCounter3 >= secondsToCount3) 
+		if ((Time.time >= 120f) &&secondsCounter3 >= secondsToCount3) 
 		{
 			secondsCounter3 = 0;
 			number++;

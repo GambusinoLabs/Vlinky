@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\FalsoFondo.cs" />
      <Compile Include="Assets\Scripts\AnimaGelatina.cs" />
      <Compile Include="Assets\Scripts\BaldosaRota.cs" />
      <Compile Include="Assets\Scripts\Baldosas.cs" />
@@ -76,7 +77,6 @@
      <Compile Include="Assets\Scripts\Retry.cs" />
      <Compile Include="Assets\Scripts\SceneManagement.cs" />
      <Compile Include="Assets\Scripts\TimeManage.cs" />
-     <Compile Include="Assets\Scripts\Video.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
