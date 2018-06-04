@@ -20,7 +20,7 @@ public class TimeManage : MonoBehaviour
 		// Provoca que la velocidad del tiempo aumente gradualmente al avanzar la escena en función a una curva del editor. 
 		if (pausado == false) 
 		{
-			Time.timeScale = (1 + curvaVelocidad.Evaluate(Time.timeSinceLevelLoad)) * multiplo;
+			//Time.timeScale = (1 + curvaVelocidad.Evaluate(Time.timeSinceLevelLoad)) * multiplo;
 		}
 
 	}
