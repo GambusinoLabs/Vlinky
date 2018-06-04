@@ -916,7 +916,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &387166674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2961,6 +2961,84 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 895663525}
+--- !u!1 &944702078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 944702080}
+  - component: {fileID: 944702079}
+  m_Layer: 0
+  m_Name: Leveler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &944702079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 944702078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a4a7519965754428a818061d48eacb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vlinkyController: {fileID: 1934922034}
+  vlinkySpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 4.4640336
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 180
+      value: 15.291078
+      inSlope: 0.018223759
+      outSlope: 0.018223759
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  vlinkyCooldownCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0.30000162
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 180
+      value: 0.050123133
+      inSlope: 0.00016369508
+      outSlope: 0.00016369508
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  debug: 1
+--- !u!4 &944702080
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 944702078}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &960402750
 GameObject:
   m_ObjectHideFlags: 0
@@ -3237,7 +3315,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1062835185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3971,7 +4049,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1497545809
 GameObject:
@@ -4302,24 +4380,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b28dd476e52b4f249866dbf195c4435f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curvaVelocidad:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: -0.31881332
-      value: 0.24966808
-      inSlope: 0.0035111317
-      outSlope: 0.0035111317
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 299.36542
-      value: 1.5051572
-      inSlope: 0.0041365023
-      outSlope: 0.0041365023
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
 --- !u!114 &1577233472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4438,7 +4498,7 @@ VideoPlayer:
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: _MainTex
   m_RenderMode: 0
-  m_AspectRatio: 1
+  m_AspectRatio: 2
   m_DataSource: 0
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 0
@@ -4607,7 +4667,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1708402432
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5080,6 +5140,7 @@ GameObject:
   - component: {fileID: 1934922031}
   - component: {fileID: 1934922032}
   - component: {fileID: 1934922035}
+  - component: {fileID: 1934922037}
   m_Layer: 2
   m_Name: Blinky
   m_TagString: Player
@@ -5314,6 +5375,81 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9df5cb98f65214e99da1d6190c0a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1934922037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1934922024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3685b01b18520f947870bb213b2974d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeftKeyDown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1934922034}
+        m_MethodName: MovimientoIzq
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  LeftKeyUp:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1934922034}
+        m_MethodName: MovimientoIzqStop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  RightKeyDown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1934922034}
+        m_MethodName: MovimientoDer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  RightKeyUp:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1934922034}
+        m_MethodName: MovimientoDerStop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1960186767
 GameObject:
   m_ObjectHideFlags: 0
@@ -5329,7 +5465,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1960186768
 SpriteRenderer:
   m_ObjectHideFlags: 0

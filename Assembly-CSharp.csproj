@@ -53,6 +53,9 @@
   <ItemGroup>
      <Compile Include="Assets\FalsoFondo.cs" />
      <Compile Include="Assets\Scripts\AnimaGelatina.cs" />
+     <Compile Include="Assets\Scripts\AudioScripts\AudioManager.cs" />
+     <Compile Include="Assets\Scripts\AudioScripts\Sound.cs" />
+     <Compile Include="Assets\Scripts\BalancingScripts\VlinkyBalance.cs" />
      <Compile Include="Assets\Scripts\BaldosaRota.cs" />
      <Compile Include="Assets\Scripts\Baldosas.cs" />
      <Compile Include="Assets\Scripts\Blinky.cs" />
@@ -69,6 +72,7 @@
      <Compile Include="Assets\Scripts\GelatinaTotal.cs" />
      <Compile Include="Assets\Scripts\Generador.cs" />
      <Compile Include="Assets\Scripts\GodMode.cs" />
+     <Compile Include="Assets\Scripts\KeyboardInput.cs" />
      <Compile Include="Assets\Scripts\Muerte.cs" />
      <Compile Include="Assets\Scripts\Panel.cs" />
      <Compile Include="Assets\Scripts\Pausa.cs" />
@@ -76,7 +80,6 @@
      <Compile Include="Assets\Scripts\restart.cs" />
      <Compile Include="Assets\Scripts\Retry.cs" />
      <Compile Include="Assets\Scripts\SceneManagement.cs" />
-     <Compile Include="Assets\Scripts\Sound.cs" />
      <Compile Include="Assets\Scripts\TimeManage.cs" />
  <Reference Include="Vuforia.UnityExtensions">
  <HintPath>D:/Unity Versions/2017.4.1f1/Editor/Data/PlaybackEngines/VuforiaSupport/Managed/Runtime/Vuforia.UnityExtensions.dll</HintPath>

@@ -15,17 +15,32 @@ public class Generador : MonoBehaviour
     public float factorDeVelocidad = 1.0f;
     public float factorDeVelocidadRandom = 0.1f;
 
-    private Transform dynamicTransform;
+    private Transform m_dynamicTransform;
+    public Transform DynamicTransform
+    {
+        get
+        {
+            if (m_dynamicTransform != null)
+                return m_dynamicTransform;
+            else
+            {
+                GameObject dynamicGameObject = GameObject.Find("_Dynamic");
+                if (dynamicGameObject == null)
+                    dynamicGameObject = new GameObject("_Dynamic");
+                m_dynamicTransform = dynamicGameObject.transform;
+                return m_dynamicTransform;
+            }
+        }
+    }
 
     void Start()
     {
-        dynamicTransform = GameObject.FindGameObjectWithTag("Dynamic").transform;
         Invoke("Spawn", esperaInicial);
     }
 
     private void Spawn()
     {
-        GameObject newGelatine = Instantiate(prefabASpawnear, dynamicTransform);
+        GameObject newGelatine = Instantiate(prefabASpawnear, DynamicTransform);
         newGelatine.transform.position = transform.position + Random.Range(-amplitudSpawn, +amplitudSpawn) * Vector3.right;
         GelatinaForce gelatinaSpeedController;
         gelatinaSpeedController = newGelatine.GetComponentInChildren<GelatinaForce>();

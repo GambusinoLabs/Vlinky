@@ -11,6 +11,24 @@ public class GelatinaForce : MonoBehaviour
     public GameObject explosion;        // Instanciar el objeto que contiene la explosión de la gelatina.
     public float velocidad = 100.0f;
 
+    private Transform m_dynamicTransform;
+    private Transform DynamicTransform
+    {
+        get
+        {
+            if (m_dynamicTransform != null)
+                return m_dynamicTransform;
+            else
+            {
+                GameObject dynamicGameObject = GameObject.Find("_Dynamic");
+                if (dynamicGameObject == null)
+                    dynamicGameObject = new GameObject("_Dynamic");
+                m_dynamicTransform = dynamicGameObject.transform;
+                return m_dynamicTransform;
+            }
+        }
+    }
+
     // methods
     void Start()
     {
@@ -25,8 +43,11 @@ public class GelatinaForce : MonoBehaviour
     {
         // Provoca que, al ser destruido el objeto, se genere el objeto que contiene la animación de la explosión.
         if (!SceneManagement.isChangingScene)
-            Instantiate(explosion, transform.position, transform.rotation);
-
+        {
+            GameObject newGO = Instantiate(explosion, DynamicTransform);
+            newGO.transform.position = transform.position;
+            newGO.transform.rotation = transform.rotation;
+        }
     }
 
 }

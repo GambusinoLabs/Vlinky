@@ -24,29 +24,52 @@ public class Blinky3 : MonoBehaviour
     public float shotCooldown = 0.3f;       // 0.05 es un buen mínimo
     public Puntuacion contador;             // Aquí debe instanciarse el contador de puntos para que se sumen los puntos conseguidos.
 
+    private Transform m_dynamicTransform;
+    private Transform DynamicTransform
+    {
+        get
+        {
+            if (m_dynamicTransform != null)
+                return m_dynamicTransform;
+            else
+            {
+                GameObject dynamicGameObject = GameObject.Find("_Dynamic");
+                if (dynamicGameObject == null)
+                    dynamicGameObject = new GameObject("_Dynamic");
+                m_dynamicTransform = dynamicGameObject.transform;
+                return m_dynamicTransform;
+            }
+        }
+    }
+
     // methods
     void FixedUpdate()
     {
 
-        if ((moverIzq == true) && (puedeAndar == true))
+        bool izqDerSimultanteos = (moverIzq && moverDer);
+
+        if (!izqDerSimultanteos)
         {
-            // Provoca que Blinky camine hacia la izquierda, activando su animación y moviendolo.
-            GetComponent<Rigidbody2D>().velocity = new Vector2(-velocidadMovimiento, GetComponent<Rigidbody2D>().velocity.y);
-            mirandoDerecha = false;
-            blinkyAnim.SetBool("MirandoDer", false);
-            blinkyAnim.SetBool("Andando", true);
+            if ((moverIzq == true) && (puedeAndar == true))
+            {
+                // Provoca que Blinky camine hacia la izquierda, activando su animación y moviendolo.
+                GetComponent<Rigidbody2D>().velocity = new Vector2(-velocidadMovimiento, GetComponent<Rigidbody2D>().velocity.y);
+                mirandoDerecha = false;
+                blinkyAnim.SetBool("MirandoDer", false);
+                blinkyAnim.SetBool("Andando", true);
+            }
+
+            if ((moverDer == true) && (puedeAndar == true))
+            {
+                // Provoca que Blinky camine hacia la derecha, activando su animación y moviendolo.
+                GetComponent<Rigidbody2D>().velocity = new Vector2(velocidadMovimiento, GetComponent<Rigidbody2D>().velocity.y);
+                mirandoDerecha = true;
+                blinkyAnim.SetBool("MirandoDer", true);
+                blinkyAnim.SetBool("Andando", true);
+            }
         }
 
-        if ((moverDer == true) && (puedeAndar == true))
-        {
-            // Provoca que Blinky camine hacia la derecha, activando su animación y moviendolo.
-            GetComponent<Rigidbody2D>().velocity = new Vector2(velocidadMovimiento, GetComponent<Rigidbody2D>().velocity.y);
-            mirandoDerecha = true;
-            blinkyAnim.SetBool("MirandoDer", true);
-            blinkyAnim.SetBool("Andando", true);
-        }
-
-        if ((moverDer == false) && (moverIzq == false))
+        if (izqDerSimultanteos || (moverDer == false) && (moverIzq == false))
         {
             // Provoca que Blinky detenga su movimiento.
             GetComponent<Rigidbody2D>().velocity = new Vector2(0.0f, GetComponent<Rigidbody2D>().velocity.y);
@@ -71,7 +94,7 @@ public class Blinky3 : MonoBehaviour
         {
             DispararIzq();
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.D))
         {
             DispararDer();
         }
@@ -95,6 +118,13 @@ public class Blinky3 : MonoBehaviour
     }
 
 
+    bool IsGelatinaTag(string tag)
+    {
+        if (tag == "GelatinaTotal" || tag == "Gelatina" || tag == "GelatinaReparadora" || tag == "Enemigo")
+            return true;
+        else return false;
+    }
+
     IEnumerator Disparo()
     {
         // Provoca que Blinky no pueda andar y activa la animación de disparo.
@@ -114,29 +144,37 @@ public class Blinky3 : MonoBehaviour
         for (int i = 0; i < hits.Length; i++)
         {
             // Cuando detecta uno o varios Collider al disparar los Raycast, dichos Collider son destruidos, aportando 50 puntos cada uno.
-            if (hits[i].collider != null)
+            if (hits[i].collider != null && IsGelatinaTag(hits[i].collider.tag))
             {
                 //Destroy(hits [i].collider.gameObject);
                 //print(hits[i].collider);
                 Destroy(hits[i].collider.gameObject.transform.parent.gameObject);
                 if (hits.Length == 1)
                 {
-                    Instantiate(masPuntos, hits[i].collider.transform.position, transform.rotation);
+                    GameObject newGO = Instantiate(masPuntos, DynamicTransform);
+                    newGO.transform.position = hits[i].collider.transform.position;
+                    newGO.transform.rotation = transform.rotation;
                     contador.GetComponent<Puntuacion>().Puntos(50);
                 }
                 if (hits.Length == 2)
                 {
-                    Instantiate(masPuntos2, hits[i].collider.transform.position, transform.rotation);
+                    GameObject newGO = Instantiate(masPuntos2, DynamicTransform);
+                    newGO.transform.position = hits[i].collider.transform.position;
+                    newGO.transform.rotation = transform.rotation;
                     contador.GetComponent<Puntuacion>().Puntos(100);
                 }
                 if (hits.Length == 3)
                 {
-                    Instantiate(masPuntos3, hits[i].collider.transform.position, transform.rotation);
+                    GameObject newGO = Instantiate(masPuntos3, DynamicTransform);
+                    newGO.transform.position = hits[i].collider.transform.position;
+                    newGO.transform.rotation = transform.rotation;
                     contador.GetComponent<Puntuacion>().Puntos(300);
                 }
                 if (hits.Length >= 4)
                 {
-                    Instantiate(masPuntos4, hits[i].collider.transform.position, transform.rotation);
+                    GameObject newGO = Instantiate(masPuntos4, DynamicTransform);
+                    newGO.transform.position = hits[i].collider.transform.position;
+                    newGO.transform.rotation = transform.rotation;
                     contador.GetComponent<Puntuacion>().Puntos(1000);
                 }
                 // Si ademas dicho Collider es una Gelatina reparadora, ejecuta su función reparar (presente en el script GelatinaReparadora, el cual lleva el propio Blinky).
