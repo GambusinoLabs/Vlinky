@@ -11,6 +11,7 @@ TagManager:
   - ActivaDin
   - Din
   - GelatinaTotal
+  - Dynamic
   layers:
   - Default
   - TransparentFX

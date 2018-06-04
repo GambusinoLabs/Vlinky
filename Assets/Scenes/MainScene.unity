@@ -2009,8 +2009,7 @@ Animator:
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 50246383854443976, guid: 37b656d1bba667842af19c6bed595e87,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 673668939}
   m_BodyType: 0
@@ -3048,12 +3047,12 @@ GameObject:
   - component: {fileID: 1000351390}
   - component: {fileID: 1000351389}
   m_Layer: 5
-  m_Name: Button
+  m_Name: GOD MODE BUTTON
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1000351388
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3262,82 +3261,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a4aba49f92b95346802b0904d4077f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curva:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: -0.09664941
-      value: 1.5540938
-      inSlope: -0.00065888616
-      outSlope: -0.00065888616
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 300
-      value: 0.6658203
-      inSlope: -0.0074886773
-      outSlope: -0.0074886773
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  curva2:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0.63762426
-      value: 39.91326
-      inSlope: -0.00073910493
-      outSlope: -0.00073910493
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 117.436
-      value: 33.635754
-      inSlope: -0.089175776
-      outSlope: -0.089175776
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 124.89021
-      value: 14.783264
-      inSlope: -0.033913907
-      outSlope: -0.033913907
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 298.72473
-      value: 3.1676636
-      inSlope: -0.112154834
-      outSlope: -0.112154834
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  curva3:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: -1.0357883
-      value: 99.56266
-      inSlope: -0.021434112
-      outSlope: -0.021434112
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 150.98999
-      value: 97.33268
-      inSlope: -0.036299773
-      outSlope: -0.036299773
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 194.72473
-      value: 50.331635
-      inSlope: -0.59043264
-      outSlope: -0.59043264
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  gelatina: {fileID: 1760155392238972, guid: 37b656d1bba667842af19c6bed595e87, type: 2}
-  gelatina2: {fileID: 1420400030420606, guid: f3a88cd79133d314ba4a661173754a96, type: 2}
-  gelatina3: {fileID: 1362713643466480, guid: c6e9106ec8e31894099a1e4a4948b5d0, type: 2}
-  variable: 7.5
+  prefabASpawnear: {fileID: 1760155392238972, guid: 37b656d1bba667842af19c6bed595e87,
+    type: 2}
+  amplitudSpawn: 7.35
+  esperaInicial: 0.5
+  tiempoEntreSpawn: 3.5
+  tiempoRandom: 1
+  factorDeVelocidad: 1
+  factorDeVelocidadRandom: 0.8
 --- !u!1 &1106917554
 GameObject:
   m_ObjectHideFlags: 0
@@ -3973,6 +3904,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1809549968}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1455335422
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1455335423}
+  m_Layer: 0
+  m_Name: _Dynamic
+  m_TagString: Dynamic
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1455335423
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1455335422}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1497545809
 GameObject:
@@ -5282,7 +5241,7 @@ MonoBehaviour:
   masPuntos2: {fileID: 1189938199158142, guid: 8b6f088b02d21994ba35461d8206374e, type: 2}
   masPuntos3: {fileID: 1446565871630406, guid: 00ea2f623a80e1f42a75faa3116fbc2b, type: 2}
   masPuntos4: {fileID: 1607540135997014, guid: 5eb308359db109b4c9baa8458307395b, type: 2}
-  velocidadMovimiento: 5
+  velocidadMovimiento: 4
   contador: {fileID: 1577233468}
 --- !u!114 &1934922035
 MonoBehaviour:

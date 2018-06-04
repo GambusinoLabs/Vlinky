@@ -228,12 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 1630346226510138, guid: 2064d06bffbeffd4a9095cddb927f856, type: 2}
-  vel_maxima_X: 0
-  vel_maxima_Y: -30
-  vel_maxima_Z: 0
-  vel_minima_X: 0
-  vel_minima_Y: -100
-  vel_minima_Z: 0
+  velocidad: 3
 --- !u!212 &212316460221088406
 SpriteRenderer:
   m_ObjectHideFlags: 1
