@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 114909759351241668}
   m_Layer: 0
   m_Name: Gelatina Reparadora 1
-  m_TagString: Untagged
+  m_TagString: GelatinaReparadora
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

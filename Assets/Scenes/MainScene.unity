@@ -3229,6 +3229,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1062835186}
   - component: {fileID: 1062835187}
+  - component: {fileID: 1062835188}
+  - component: {fileID: 1062835185}
   m_Layer: 2
   m_Name: Generador
   m_TagString: Untagged
@@ -3236,6 +3238,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1062835185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1062835184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a4aba49f92b95346802b0904d4077f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabASpawnear: {fileID: 1362713643466480, guid: c6e9106ec8e31894099a1e4a4948b5d0,
+    type: 2}
+  amplitudSpawn: 7.35
+  esperaInicial: 1
+  tiempoEntreSpawn: 15
+  tiempoRandom: 14
+  factorDeVelocidad: 1
+  factorDeVelocidadRandom: 0.8
 --- !u!4 &1062835186
 Transform:
   m_ObjectHideFlags: 0
@@ -3267,6 +3288,25 @@ MonoBehaviour:
   esperaInicial: 0.5
   tiempoEntreSpawn: 3.5
   tiempoRandom: 1
+  factorDeVelocidad: 10
+  factorDeVelocidadRandom: 0.8
+--- !u!114 &1062835188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1062835184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a4aba49f92b95346802b0904d4077f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabASpawnear: {fileID: 1420400030420606, guid: f3a88cd79133d314ba4a661173754a96,
+    type: 2}
+  amplitudSpawn: 7.35
+  esperaInicial: 30
+  tiempoEntreSpawn: 15
+  tiempoRandom: 14
   factorDeVelocidad: 1
   factorDeVelocidadRandom: 0.8
 --- !u!1 &1106917554
@@ -3528,7 +3568,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1211078646}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.485586, y: -8.251352, z: 0.21629968}
+  m_LocalPosition: {x: -3.485586, y: -8.417353, z: 0.21629968}
   m_LocalScale: {x: 17.3128, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1809549968}
@@ -5241,7 +5281,8 @@ MonoBehaviour:
   masPuntos2: {fileID: 1189938199158142, guid: 8b6f088b02d21994ba35461d8206374e, type: 2}
   masPuntos3: {fileID: 1446565871630406, guid: 00ea2f623a80e1f42a75faa3116fbc2b, type: 2}
   masPuntos4: {fileID: 1607540135997014, guid: 5eb308359db109b4c9baa8458307395b, type: 2}
-  velocidadMovimiento: 4
+  velocidadMovimiento: 15
+  shotCooldown: 0.3
   contador: {fileID: 1577233468}
 --- !u!114 &1934922035
 MonoBehaviour:

@@ -21,6 +21,7 @@ public class Blinky3 : MonoBehaviour
     public GameObject masPuntos3;           // El objeto que se mostrará al destruir una gelatina.
     public GameObject masPuntos4;           // El objeto que se mostrará al destruir una gelatina.
     public float velocidadMovimiento;       // Determina la velocidad del movimiento de Blinky.
+    public float shotCooldown = 0.3f;       // 0.05 es un buen mínimo
     public Puntuacion contador;             // Aquí debe instanciarse el contador de puntos para que se sumen los puntos conseguidos.
 
     // methods
@@ -153,7 +154,7 @@ public class Blinky3 : MonoBehaviour
         }
 
         // Mientras dispara, se detiene durante 0.3", sin poder moverse. Posteriormente se reanuda el poder andar y finaliza la animación del disparo.
-        yield return new WaitForSecondsRealtime(.2f);
+        yield return new WaitForSecondsRealtime(shotCooldown);
         blinkyAnim.SetBool("Disparo", false);
         puedeAndar = true;
         disparandoIzq = false;

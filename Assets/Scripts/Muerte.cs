@@ -15,11 +15,13 @@ public class Muerte : MonoBehaviour
     // methods
     IEnumerator OnTriggerEnter2D(Collider2D col)
     {
-        if (godMode == true)
+        if (godMode == true && IsGelatinaTag(col.tag))
         {
             Debug.Log("NO PUEDO MORIR");
-            Destroy(col.gameObject);
-            Destroy(col.gameObject.transform.parent.gameObject);
+            if (col.tag == "Gelatina")
+                Destroy(col.gameObject.transform.parent.gameObject);
+            else
+                Destroy(col.gameObject);
         }
         else
         {
@@ -44,6 +46,13 @@ public class Muerte : MonoBehaviour
                 reiniciar.RetryGame();
             }
         }
+    }
+
+    bool IsGelatinaTag(string tag)
+    {
+        if (tag == "GelatinaTotal" || tag == "Gelatina" || tag == "GelatinaReparadora" || tag == "Enemigo")
+            return true;
+        else return false;
     }
 
 }

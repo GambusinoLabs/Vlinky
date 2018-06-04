@@ -10,26 +10,6 @@ public class TimeManage : MonoBehaviour
     float multiplo = 1;
     float velocidad;                            // Se usa para guardar la velocidad cuando se pausa el juego.
 
-    // properties
-    public AnimationCurve curvaVelocidad;       // Controla el aumento progresivo de velocidad.
-
-    void Start()
-    {
-        Time.timeScale = 5.0f;
-    }
-
-    // methods
-    void Update()
-    {
-
-        // Provoca que la velocidad del tiempo aumente gradualmente al avanzar la escena en función a una curva del editor. 
-        if (pausado == false)
-        {
-            //Time.timeScale = (1 + curvaVelocidad.Evaluate(Time.timeSinceLevelLoad)) * multiplo;
-        }
-
-    }
-
     public void Pause()
     {
 
