@@ -219,7 +219,7 @@ public class Blinky3 : MonoBehaviour
         disparandoDer = false;
         puedeDisparar = true;
         StopCoroutine("RestaurarPuedeAndar");
-        StartCoroutine(RestaurarPuedeAndar(shotCooldown * 3.0f));
+        StartCoroutine(RestaurarPuedeAndar(0.05f));
     }
 
     IEnumerator RestaurarPuedeAndar(float wait)
@@ -255,6 +255,14 @@ public class Blinky3 : MonoBehaviour
 
         moverIzq = false;
 
+    }
+
+    public void Disparar()
+    {
+        if (GetComponent<SpriteRenderer>().flipX)
+            DispararDer();
+        else
+            DispararIzq();
     }
 
     public void DispararIzq()

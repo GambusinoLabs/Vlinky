@@ -9,11 +9,11 @@ public class VlinkyBalance : MonoBehaviour
     public AnimationCurve vlinkySpeedCurve;
     public AnimationCurve vlinkyCooldownCurve;
 
-    public bool debug = false;
+    public bool valoresFinales = false;
 
     void Start()
     {
-        if (debug)
+        if (valoresFinales)
         {
             vlinkyController.velocidadMovimiento = vlinkySpeedCurve.Evaluate(999f);
             vlinkyController.shotCooldown = vlinkyCooldownCurve.Evaluate(999f);
@@ -26,7 +26,5 @@ public class VlinkyBalance : MonoBehaviour
     {
         vlinkyController.velocidadMovimiento = vlinkySpeedCurve.Evaluate(Time.timeSinceLevelLoad);
         vlinkyController.shotCooldown = vlinkyCooldownCurve.Evaluate(Time.timeSinceLevelLoad);
-
-        Debug.Log("Velocidad: " + vlinkyController.velocidadMovimiento + " --- Cooldown: " + vlinkyController.shotCooldown);
     }
 }

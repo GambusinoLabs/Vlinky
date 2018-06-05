@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class KeyboardInput : MonoBehaviour
 {
-    public UnityEvent LeftKeyDown, LeftKeyUp, RightKeyDown, RightKeyUp;
+    public UnityEvent LeftKeyDown, LeftKeyUp, RightKeyDown, RightKeyUp, UpKeyDown;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -14,5 +14,7 @@ public class KeyboardInput : MonoBehaviour
             RightKeyDown.Invoke();
         if (Input.GetKeyUp(KeyCode.RightArrow))
             RightKeyUp.Invoke();
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+            UpKeyDown.Invoke();
     }
 }

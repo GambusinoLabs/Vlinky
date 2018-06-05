@@ -1027,7 +1027,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 220158a84dd957c41a779a2d1532b95e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.506
+  m_Volume: 0.515
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3093,7 +3093,7 @@ GameObject:
   - component: {fileID: 944702080}
   - component: {fileID: 944702079}
   m_Layer: 0
-  m_Name: Leveler
+  m_Name: Vlinky Balance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3121,8 +3121,8 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
-      time: 180
-      value: 15.291078
+      time: 302.59534
+      value: 15.019211
       inSlope: 0.018223759
       outSlope: 0.018223759
       tangentMode: 0
@@ -3134,20 +3134,26 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0.30000162
+      value: 0.22999853
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
+      time: 123.37123
+      value: 0.14928852
+      inSlope: -0.0014828125
+      outSlope: -0.0014828125
+      tangentMode: 0
+    - serializedVersion: 2
       time: 180
       value: 0.050123133
-      inSlope: 0.00016369508
-      outSlope: 0.00016369508
+      inSlope: -0.00010734028
+      outSlope: -0.00010734028
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  debug: 1
+  valoresFinales: 0
 --- !u!4 &944702080
 Transform:
   m_ObjectHideFlags: 0
@@ -3429,8 +3435,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1062835186}
   - component: {fileID: 1062835187}
+  - component: {fileID: 1062835189}
   - component: {fileID: 1062835188}
   - component: {fileID: 1062835185}
+  - component: {fileID: 1062835190}
+  - component: {fileID: 1062835191}
   m_Layer: 2
   m_Name: Generador
   m_TagString: Untagged
@@ -3452,11 +3461,54 @@ MonoBehaviour:
   prefabASpawnear: {fileID: 1362713643466480, guid: c6e9106ec8e31894099a1e4a4948b5d0,
     type: 2}
   amplitudSpawn: 7.35
-  esperaInicial: 1
+  esperaInicial: 100
   tiempoEntreSpawn: 15
   tiempoRandom: 14
   factorDeVelocidad: 1
   factorDeVelocidadRandom: 0.8
+  usarCurvas: 1
+  tiempoEntreSpawnCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 14.996527
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 233.12804
+      value: 8.177057
+      inSlope: -0.0011450952
+      outSlope: -0.0011450952
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 395
+      value: 8.000008
+      inSlope: -0.0005878335
+      outSlope: -0.0005878335
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  factorDeVelocidadCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0.80517435
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 180
+      value: 2.062777
+      inSlope: 0.018223759
+      outSlope: 0.018223759
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!4 &1062835186
 Transform:
   m_ObjectHideFlags: 0
@@ -3490,6 +3542,61 @@ MonoBehaviour:
   tiempoRandom: 1
   factorDeVelocidad: 1
   factorDeVelocidadRandom: 0.8
+  usarCurvas: 1
+  tiempoEntreSpawnCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 3.4500153
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 112.04416
+      value: 2.5687268
+      inSlope: -0.023841858
+      outSlope: -0.023841858
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 279.30267
+      value: 1.0029049
+      inSlope: -0.01608762
+      outSlope: -0.01608762
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 397.21085
+      value: 0.004890755
+      inSlope: -0.0005878335
+      outSlope: -0.0005878335
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  factorDeVelocidadCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0.80517435
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 424.976
+      value: 7.45448
+      inSlope: 0.04817483
+      outSlope: 0.04817483
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 503.61386
+      value: 9.301159
+      inSlope: 0.018223759
+      outSlope: 0.018223759
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &1062835188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3504,11 +3611,258 @@ MonoBehaviour:
   prefabASpawnear: {fileID: 1420400030420606, guid: f3a88cd79133d314ba4a661173754a96,
     type: 2}
   amplitudSpawn: 7.35
-  esperaInicial: 30
+  esperaInicial: 45
   tiempoEntreSpawn: 15
   tiempoRandom: 14
   factorDeVelocidad: 1
   factorDeVelocidadRandom: 0.8
+  usarCurvas: 1
+  tiempoEntreSpawnCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 14.996527
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 233.17128
+      value: 8.517511
+      inSlope: 0.004071242
+      outSlope: 0.004071242
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 395
+      value: 6.000008
+      inSlope: -0.0005878335
+      outSlope: -0.0005878335
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  factorDeVelocidadCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0.9066625
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 180
+      value: 5.2782016
+      inSlope: 0.018223759
+      outSlope: 0.018223759
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!114 &1062835189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1062835184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a4aba49f92b95346802b0904d4077f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabASpawnear: {fileID: 1760155392238972, guid: 37b656d1bba667842af19c6bed595e87,
+    type: 2}
+  amplitudSpawn: 7.35
+  esperaInicial: 150
+  tiempoEntreSpawn: 3.5
+  tiempoRandom: 1
+  factorDeVelocidad: 1
+  factorDeVelocidadRandom: 0.8
+  usarCurvas: 1
+  tiempoEntreSpawnCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 150.4252
+      value: 2.8035843
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 190.38297
+      value: 2.3025525
+      inSlope: -0.023841858
+      outSlope: -0.023841858
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 332.63193
+      value: 1.3147092
+      inSlope: -0.01608762
+      outSlope: -0.01608762
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 500.19144
+      value: 0.08094056
+      inSlope: -0.0005878335
+      outSlope: -0.0005878335
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  factorDeVelocidadCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0.80517435
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 239.95963
+      value: 5.651716
+      inSlope: 0.06284311
+      outSlope: 0.06284311
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 360
+      value: 10.000001
+      inSlope: 0.018223759
+      outSlope: 0.018223759
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!114 &1062835190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1062835184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a4aba49f92b95346802b0904d4077f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabASpawnear: {fileID: 1760155392238972, guid: 37b656d1bba667842af19c6bed595e87,
+    type: 2}
+  amplitudSpawn: 7.35
+  esperaInicial: 260
+  tiempoEntreSpawn: 3.5
+  tiempoRandom: 1
+  factorDeVelocidad: 1
+  factorDeVelocidadRandom: 0.8
+  usarCurvas: 1
+  tiempoEntreSpawnCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 260.86063
+      value: 2.50307
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 332.63193
+      value: 1.3147092
+      inSlope: -0.022712542
+      outSlope: -0.022712542
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 500.19144
+      value: 0.08094056
+      inSlope: -0.0005878335
+      outSlope: -0.0005878335
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  factorDeVelocidadCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0.80517435
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 239.95963
+      value: 5.651716
+      inSlope: 0.06284311
+      outSlope: 0.06284311
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 360
+      value: 10.000001
+      inSlope: 0.018223759
+      outSlope: 0.018223759
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!114 &1062835191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1062835184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a4aba49f92b95346802b0904d4077f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabASpawnear: {fileID: 1362713643466480, guid: c6e9106ec8e31894099a1e4a4948b5d0,
+    type: 2}
+  amplitudSpawn: 7.35
+  esperaInicial: 220
+  tiempoEntreSpawn: 15
+  tiempoRandom: 14
+  factorDeVelocidad: 1
+  factorDeVelocidadRandom: 0.8
+  usarCurvas: 1
+  tiempoEntreSpawnCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 14.996527
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 233.12804
+      value: 8.177057
+      inSlope: -0.0011450952
+      outSlope: -0.0011450952
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 395
+      value: 8.000008
+      inSlope: -0.0005878335
+      outSlope: -0.0005878335
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  factorDeVelocidadCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0.80517435
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 180
+      value: 2.062777
+      inSlope: 0.018223759
+      outSlope: 0.018223759
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &1106917554
 GameObject:
   m_ObjectHideFlags: 0
@@ -5608,6 +5962,22 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1934922034}
         m_MethodName: MovimientoDerStop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  UpKeyDown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1934922034}
+        m_MethodName: Disparar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -15,6 +15,11 @@ public class Generador : MonoBehaviour
     public float factorDeVelocidad = 1.0f;
     public float factorDeVelocidadRandom = 0.1f;
 
+    [Space(40)]
+    public bool usarCurvas = true;
+    public AnimationCurve tiempoEntreSpawnCurve, factorDeVelocidadCurve;
+    //public AnimationCurve tiempoRandomCurve, factorDeVelocidadRandomCurve;
+
     private Transform m_dynamicTransform;
     public Transform DynamicTransform
     {
@@ -36,6 +41,20 @@ public class Generador : MonoBehaviour
     void Start()
     {
         Invoke("Spawn", esperaInicial);
+        if (!usarCurvas)
+            this.enabled = false;
+    }
+
+    void Update()
+    {
+        // Solo se llamará si se usa la curva
+        tiempoEntreSpawn = tiempoEntreSpawnCurve.Evaluate(Time.timeSinceLevelLoad);
+        //tiempoRandom = tiempoRandomCurve.Evaluate(Time.timeSinceLevelLoad);
+        tiempoRandom = tiempoEntreSpawn / 2.5f;
+
+        factorDeVelocidad = factorDeVelocidadCurve.Evaluate(Time.timeSinceLevelLoad);
+        //factorDeVelocidadRandom = factorDeVelocidadRandomCurve.Evaluate(Time.timeSinceLevelLoad);
+        factorDeVelocidadRandom = factorDeVelocidad / 2.5f;
     }
 
     private void Spawn()
