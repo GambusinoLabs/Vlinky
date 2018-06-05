@@ -130,6 +130,8 @@ public class Blinky3 : MonoBehaviour
         // Provoca que Blinky no pueda andar y activa la animación de disparo.
         puedeAndar = false;
         blinkyAnim.SetBool("Disparo", true);
+        AudioManager.instance.Play("Disparo");
+
         // Si el personaje dispara a la derecha, lanza un Raycast 45º en dirección a la derecha, si dispara a la izquierda, lo lanza 45º en dirección a la izquierda.
         RaycastHit2D[] hits;
         if (disparandoDer == true)
