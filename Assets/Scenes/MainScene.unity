@@ -985,7 +985,7 @@ Transform:
   m_LocalScale: {x: 3.2073784, y: 3.212349, z: 3.1981223}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &387166677
 MonoBehaviour:
@@ -1027,7 +1027,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 220158a84dd957c41a779a2d1532b95e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.02
+  m_Volume: 0.506
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1119,7 +1119,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &456198361
 GameObject:
@@ -3159,7 +3159,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &960402750
 GameObject:
@@ -3782,12 +3782,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4801823532295842, guid: cd2caac0821239a45928ed1c89f07764, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 114893815212033816, guid: cd2caac0821239a45928ed1c89f07764,
         type: 2}
-      propertyPath: fxSounds.Array.data[0].volume
-      value: 0.375
+      propertyPath: overallMusicVolume
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cd2caac0821239a45928ed1c89f07764, type: 2}
@@ -4218,7 +4218,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1497545809
 GameObject:
@@ -4693,7 +4693,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1652840684
 Prefab:
@@ -5903,7 +5903,7 @@ GameObject:
   - component: {fileID: 2086895345}
   m_Layer: 0
   m_Name: Baldosas
-  m_TagString: Untagged
+  m_TagString: Baldosas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

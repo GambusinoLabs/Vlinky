@@ -60,57 +60,65 @@ public class GelatinaTotal : MonoBehaviour
 
     }
 
-    public IEnumerator GelatinaTot()
+    public IEnumerator DestroyAllEnemiesInScreen()
     {
 
         yield return new WaitForSeconds(.1f);
-        if (aciertos == 1)
+        foreach (GameObject gelatina in gelatinas)
         {
-            foreach (GameObject gelatina in gelatinas)
-            {
-                Destroy(gelatina.transform.parent.gameObject);
-                contador.GetComponent<Puntuacion>().Puntos(50);
-                GameObject newGO = Instantiate(masPuntos, DynamicTransform);
-                newGO.transform.position = gelatina.transform.position;
-                newGO.transform.rotation = gelatina.transform.rotation;
-            }
+            Destroy(gelatina.transform.parent.gameObject);
+            contador.GetComponent<Puntuacion>().Puntos(50);
+            GameObject newGO = Instantiate(masPuntos, DynamicTransform);
+            newGO.transform.position = gelatina.transform.position;
+            newGO.transform.rotation = gelatina.transform.rotation;
         }
-        if (aciertos == 2)
-        {
-            foreach (GameObject gelatina in gelatinas)
-            {
-                Destroy(gelatina.transform.parent.gameObject);
-                contador.GetComponent<Puntuacion>().Puntos(100);
-                GameObject newGO = Instantiate(masPuntos2, DynamicTransform);
-                newGO.transform.position = gelatina.transform.position;
-                newGO.transform.rotation = gelatina.transform.rotation;
-            }
-        }
-        if (aciertos == 3)
-        {
-            foreach (GameObject gelatina in gelatinas)
-            {
-                Destroy(gelatina.transform.parent.gameObject);
-                contador.GetComponent<Puntuacion>().Puntos(300);
-                GameObject newGO = Instantiate(masPuntos3, DynamicTransform);
-                newGO.transform.position = gelatina.transform.position;
-                newGO.transform.rotation = gelatina.transform.rotation;
-            }
-        }
-        if (aciertos >= 4)
-        {
-            foreach (GameObject gelatina in gelatinas)
-            {
-                Destroy(gelatina.transform.parent.gameObject);
-                contador.GetComponent<Puntuacion>().Puntos(1000);
-                GameObject newGO = Instantiate(masPuntos4, DynamicTransform);
-                newGO.transform.position = gelatina.transform.position;
-                newGO.transform.rotation = gelatina.transform.rotation;
-            }
-        }
+        // if (aciertos == 1)
+        // {
+        //     foreach (GameObject gelatina in gelatinas)
+        //     {
+        //         Destroy(gelatina.transform.parent.gameObject);
+        //         contador.GetComponent<Puntuacion>().Puntos(50);
+        //         GameObject newGO = Instantiate(masPuntos, DynamicTransform);
+        //         newGO.transform.position = gelatina.transform.position;
+        //         newGO.transform.rotation = gelatina.transform.rotation;
+        //     }
+        // }
+        // if (aciertos == 2)
+        // {
+        //     foreach (GameObject gelatina in gelatinas)
+        //     {
+        //         Destroy(gelatina.transform.parent.gameObject);
+        //         contador.GetComponent<Puntuacion>().Puntos(100);
+        //         GameObject newGO = Instantiate(masPuntos2, DynamicTransform);
+        //         newGO.transform.position = gelatina.transform.position;
+        //         newGO.transform.rotation = gelatina.transform.rotation;
+        //     }
+        // }
+        // if (aciertos == 3)
+        // {
+        //     foreach (GameObject gelatina in gelatinas)
+        //     {
+        //         Destroy(gelatina.transform.parent.gameObject);
+        //         contador.GetComponent<Puntuacion>().Puntos(300);
+        //         GameObject newGO = Instantiate(masPuntos3, DynamicTransform);
+        //         newGO.transform.position = gelatina.transform.position;
+        //         newGO.transform.rotation = gelatina.transform.rotation;
+        //     }
+        // }
+        // if (aciertos >= 4)
+        // {
+        //     foreach (GameObject gelatina in gelatinas)
+        //     {
+        //         Destroy(gelatina.transform.parent.gameObject);
+        //         contador.GetComponent<Puntuacion>().Puntos(1000);
+        //         GameObject newGO = Instantiate(masPuntos4, DynamicTransform);
+        //         newGO.transform.position = gelatina.transform.position;
+        //         newGO.transform.rotation = gelatina.transform.rotation;
+        //     }
+        // }
     }
 
-    public IEnumerator GelatinaTot1()
+    public IEnumerator SendDinsToRepair()
     {
         foreach (GameObject din in dins)
         {

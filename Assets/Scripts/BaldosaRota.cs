@@ -32,6 +32,22 @@ public class BaldosaRota : MonoBehaviour
         }
     }
 
+    private Transform m_baldosasTransform;
+    private Transform BaldosasTransform
+    {
+        get
+        {
+            if (m_baldosasTransform != null)
+                return m_baldosasTransform;
+            else
+            {
+                GameObject baldosasGameObject = GameObject.FindGameObjectWithTag("Baldosas");
+                m_baldosasTransform = baldosasGameObject.transform;
+                return m_baldosasTransform;
+            }
+        }
+    }
+
     // methodos
     void Start()
     {
@@ -64,7 +80,7 @@ public class BaldosaRota : MonoBehaviour
     IEnumerator Sustitucion()
     {
         yield return new WaitForSeconds(.2f);
-        GameObject newBaldosa = Instantiate(baldosaSana, DynamicTransform);
+        GameObject newBaldosa = Instantiate(baldosaSana, BaldosasTransform);
         newBaldosa.transform.position = transform.position;
         newBaldosa.transform.rotation = transform.rotation;
         Destroy(gameObject);

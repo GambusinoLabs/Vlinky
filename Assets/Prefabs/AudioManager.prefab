@@ -56,8 +56,8 @@ MonoBehaviour:
   fxSounds:
   - name: Disparo
     clip: {fileID: 8300000, guid: bea9927104dcd6342830effb7366cf18, type: 3}
-    volume: 1
-    volumeVariance: 0
+    volume: 0.258
+    volumeVariance: 0.12
     pitch: 1
-    pitchVariance: 0
+    pitchVariance: 0.081
     source: {fileID: 0}

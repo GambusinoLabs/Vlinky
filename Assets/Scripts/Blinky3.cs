@@ -12,6 +12,7 @@ public class Blinky3 : MonoBehaviour
     bool moverDer = false;          // Determina si Blinky se está moviendo a la derecha o no.
     bool moverIzq = false;          // Determina si Blinky se está moviendo a la izquierda o no.
     bool puedeAndar = true;         // Determina si Blinky puede moverse o no (por estar disparando).
+    bool puedeDisparar = true;
     RaycastHit2D hit;
 
     // properties
@@ -77,13 +78,13 @@ public class Blinky3 : MonoBehaviour
         }
 
 
-        if ((disparandoDer == true) && (puedeAndar == true))
+        if ((disparandoDer == true) && (puedeDisparar == true))
         {
             // Inicia la Corrutina de Disparo.
             StartCoroutine("Disparo");
         }
 
-        if ((disparandoIzq == true) && (puedeAndar == true))
+        if ((disparandoIzq == true) && (puedeDisparar == true))
         {
             // Inicia la Corrutina de Disparo.
             StartCoroutine("Disparo");
@@ -125,10 +126,22 @@ public class Blinky3 : MonoBehaviour
         else return false;
     }
 
+    private int CountGelatinesInRaycast(RaycastHit2D[] hits)
+    {
+        int howMany = 0;
+        foreach (RaycastHit2D h in hits)
+        {
+            if (h.collider.tag == "ColliderDestructor")
+                howMany++;
+        }
+        return howMany;
+    }
+
     IEnumerator Disparo()
     {
         // Provoca que Blinky no pueda andar y activa la animación de disparo.
         puedeAndar = false;
+        puedeDisparar = false;
         blinkyAnim.SetBool("Disparo", true);
         AudioManager.instance.Play("Disparo");
 
@@ -136,71 +149,83 @@ public class Blinky3 : MonoBehaviour
         RaycastHit2D[] hits;
         if (disparandoDer == true)
         {
-            hits = Physics2D.RaycastAll(GetComponent<Rigidbody2D>().transform.position, new Vector2(1f, 1f));
+            hits = Physics2D.RaycastAll(GetComponent<Rigidbody2D>().transform.position + 0.15f * Vector3.down, new Vector2(1f, 1f));
         }
         else
         {
-            hits = Physics2D.RaycastAll(GetComponent<Rigidbody2D>().transform.position, new Vector2(-1f, 1f));
+            hits = Physics2D.RaycastAll(GetComponent<Rigidbody2D>().transform.position + 0.15f * Vector3.down, new Vector2(-1f, 1f));
         }
+
+        int alineados = CountGelatinesInRaycast(hits);
 
         for (int i = 0; i < hits.Length; i++)
         {
             // Cuando detecta uno o varios Collider al disparar los Raycast, dichos Collider son destruidos, aportando 50 puntos cada uno.
-            if (hits[i].collider != null && IsGelatinaTag(hits[i].collider.tag))
+            if (hits[i].collider != null && hits[i].collider.tag == "ColliderDestructor")
             {
                 //Destroy(hits [i].collider.gameObject);
                 //print(hits[i].collider);
                 Destroy(hits[i].collider.gameObject.transform.parent.gameObject);
-                if (hits.Length == 1)
+
+                if (alineados == 1)
                 {
                     GameObject newGO = Instantiate(masPuntos, DynamicTransform);
                     newGO.transform.position = hits[i].collider.transform.position;
                     newGO.transform.rotation = transform.rotation;
                     contador.GetComponent<Puntuacion>().Puntos(50);
                 }
-                if (hits.Length == 2)
+                if (alineados == 2)
                 {
                     GameObject newGO = Instantiate(masPuntos2, DynamicTransform);
                     newGO.transform.position = hits[i].collider.transform.position;
                     newGO.transform.rotation = transform.rotation;
                     contador.GetComponent<Puntuacion>().Puntos(100);
                 }
-                if (hits.Length == 3)
+                if (alineados == 3)
                 {
                     GameObject newGO = Instantiate(masPuntos3, DynamicTransform);
                     newGO.transform.position = hits[i].collider.transform.position;
                     newGO.transform.rotation = transform.rotation;
                     contador.GetComponent<Puntuacion>().Puntos(300);
                 }
-                if (hits.Length >= 4)
+                if (alineados >= 4)
                 {
                     GameObject newGO = Instantiate(masPuntos4, DynamicTransform);
                     newGO.transform.position = hits[i].collider.transform.position;
                     newGO.transform.rotation = transform.rotation;
                     contador.GetComponent<Puntuacion>().Puntos(1000);
                 }
+
                 // Si ademas dicho Collider es una Gelatina reparadora, ejecuta su función reparar (presente en el script GelatinaReparadora, el cual lleva el propio Blinky).
-                if (hits[i].collider.gameObject.tag == "GelatinaReparadora")
+                if (hits[i].collider.transform.parent.gameObject.tag == "GelatinaReparadora")
                 {
                     gameObject.GetComponent<GelatinaReparadora>().Reparar();
                 }
-                if (hits[i].collider.gameObject.tag == "GelatinaTotal")
+                if (hits[i].collider.transform.parent.gameObject.tag == "GelatinaTotal")
                 {
                     gameObject.GetComponent<GelatinaTotal>().aciertos = hits.Length;
-                    gameObject.GetComponent<GelatinaTotal>().StartCoroutine("GelatinaTot");
-                    gameObject.GetComponent<GelatinaTotal>().StartCoroutine("GelatinaTot1");
+                    gameObject.GetComponent<GelatinaTotal>().StartCoroutine("DestroyAllEnemiesInScreen");
+                    gameObject.GetComponent<GelatinaTotal>().StartCoroutine("SendDinsToRepair");
                 }
             }
+
+
         }
 
         // Mientras dispara, se detiene durante 0.3", sin poder moverse. Posteriormente se reanuda el poder andar y finaliza la animación del disparo.
         yield return new WaitForSecondsRealtime(shotCooldown);
         blinkyAnim.SetBool("Disparo", false);
-        puedeAndar = true;
         disparandoIzq = false;
         disparandoDer = false;
+        puedeDisparar = true;
+        StopCoroutine("RestaurarPuedeAndar");
+        StartCoroutine(RestaurarPuedeAndar(shotCooldown * 3.0f));
+    }
 
-
+    IEnumerator RestaurarPuedeAndar(float wait)
+    {
+        yield return new WaitForSecondsRealtime(wait);
+        puedeAndar = true;
     }
 
     // De aqui en adelante las funciones activan las distintas acciones del script.

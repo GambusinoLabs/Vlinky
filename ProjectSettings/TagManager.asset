@@ -12,6 +12,8 @@ TagManager:
   - Din
   - GelatinaTotal
   - Dynamic
+  - Baldosas
+  - ColliderDestructor
   layers:
   - Default
   - TransparentFX
