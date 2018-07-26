@@ -5,7 +5,7 @@ This is still a work in progress.
 
 ## Main authors:
 - **Manu Moya** (gameplay programmer)
-- **wefwef** (artist, interface designer and 2D animator)
+- **Emilio** (artist, interface designer and 2D animator)
 
 Driven and supervised by **GambusinoLabs** (artistic direction, music and programming support) .
 
