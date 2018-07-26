@@ -1,6 +1,8 @@
 # Vlinky
 Unity project for an Android game. Gameplay mechanics cloned from Pyoro 2.
+
 ![Game banner](Images/banner-1.jpg)
+
 This is still a work in progress.
 
 ## Main authors:
