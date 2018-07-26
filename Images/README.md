@@ -44,4 +44,4 @@
 
 ![Screenshot death](screenshot-2.png)
 
-Art handcrafted by **[Emilio Kessel](https://www.instagram.com/ekesselm/)** with <3
+Art handcrafted by **[Emilio Kessel](https://www.instagram.com/ekesselm/)** with :heart:
