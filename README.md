@@ -5,8 +5,8 @@ Unity project for an Android game. Gameplay mechanics cloned from Pyoro 2.
 
 This is still a work in progress.
 
-## Main authors:
-Handcrafted with :heart: in Granada
+## Credits
+Handcrafted with :heart: in Granada by:
 - **[Manu Moya](https://github.com/Moya1407)** (gameplay programmer)
 - **[Emilio Kessel](https://www.instagram.com/ekesselm/)** (artist, interface designer and 2D animator)
 
