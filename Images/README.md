@@ -43,3 +43,5 @@
 ![Screenshot gameplay](screenshot-1.png)
 
 ![Screenshot death](screenshot-2.png)
+
+Art handcrafted by **[Emilio Kessel](https://www.instagram.com/ekesselm/)** with <3
